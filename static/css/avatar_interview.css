@@ -1,0 +1,572 @@
+/* Avatar Interview Styles */
+
+.avatar-interview-container {
+    padding: 2rem 0;
+    min-height: calc(100vh - 76px); /* Adjust based on navbar height */
+    background-color: #f8f9fa;
+}
+
+/* Header Section */
+.header-section {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.interview-title {
+    color: #2c3e50;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.interview-instructions {
+    color: #6c757d;
+    max-width: 600px;
+    margin: 0 auto 1.5rem;
+}
+
+/* Progress Bar */
+.progress-section {
+    max-width: 800px;
+    margin: 0 auto;
+    display: none; /* Hidden initially */
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #495057;
+}
+
+.progress-bar {
+    height: 10px;
+    background-color: #e9ecef;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: #0d6efd;
+    width: 0%;
+    transition: width 0.3s ease;
+}
+
+/* Setup Card */
+.interview-setup {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.setup-card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    padding: 2rem;
+}
+
+.setup-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.setup-header h2 {
+    color: #2c3e50;
+    font-weight: 600;
+}
+
+.form-row {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    flex: 1;
+}
+
+.form-label {
+    font-weight: 500;
+    color: #495057;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.form-select {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.form-select:focus {
+    border-color: #0d6efd;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.1);
+}
+
+.start-interview-btn {
+    width: 100%;
+    padding: 1rem;
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.start-interview-btn:hover {
+    background-color: #0b5ed7;
+}
+
+/* Interview Content Area */
+.interview-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+@media (max-width: 768px) {
+    .interview-content {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Avatar Section */
+.avatar-section {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.avatar-container {
+    position: relative;
+    width: 100%;
+    padding-top: 75%; /* 4:3 Aspect Ratio */
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 1.5rem;
+}
+
+.avatar-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    display: none; /* Hidden by default */
+}
+
+.question-section {
+    flex-grow: 1;
+}
+
+.question-label {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: #6c757d;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.question-text {
+    font-size: 1.2rem;
+    color: #2c3e50;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+/* Response Section */
+.response-section {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.video-preview-section {
+    margin-bottom: 1.5rem;
+}
+
+.video-preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.video-preview-label {
+    font-weight: 500;
+    color: #495057;
+}
+
+.recording-indicator {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #dc3545;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.recording-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #dc3545;
+    border-radius: 50%;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.video-preview-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    background-color: #000;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.user-video-preview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scaleX(-1); /* Mirror effect */
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    background: rgba(0,0,0,0.7);
+    z-index: 5;
+}
+
+.mic-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.mic-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(13, 110, 253, 0.3);
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mic-button:hover:not(:disabled) {
+    transform: scale(1.05);
+    background-color: #0b5ed7;
+}
+
+.mic-button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.mic-button.recording {
+    background-color: #dc3545;
+    animation: pulse-ring 2s infinite;
+}
+
+@keyframes pulse-ring {
+    0% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.7); }
+    70% { box-shadow: 0 0 0 15px rgba(220, 53, 69, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0); }
+}
+
+.mic-status {
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+    color: #6c757d;
+    font-weight: 500;
+}
+
+.transcript-section {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 1rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.transcript-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    color: #6c757d;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.transcript-container {
+    flex-grow: 1;
+    max-height: 150px;
+    overflow-y: auto;
+}
+
+.transcript-text {
+    font-size: 0.95rem;
+    color: #495057;
+    font-style: italic;
+}
+
+.next-section-fixed {
+    margin-top: 1.5rem;
+    text-align: right;
+}
+
+.next-button {
+    padding: 0.75rem 1.5rem;
+    background-color: #198754;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.next-button:hover {
+    background-color: #157347;
+}
+
+/* Completion Screen */
+.completion-screen {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.completion-content {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    padding: 3rem 2rem;
+    text-align: center;
+}
+
+.completion-icon {
+    font-size: 4rem;
+    color: #198754;
+    margin-bottom: 1.5rem;
+}
+
+.overall-score-section {
+    margin: 2rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+.score-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 8px solid #0d6efd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.score-number {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #2c3e50;
+    line-height: 1;
+}
+
+.score-label {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-top: 0.25rem;
+}
+
+.detailed-feedback-section {
+    text-align: left;
+    margin-top: 3rem;
+}
+
+.feedback-category {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.category-header h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #2c3e50;
+}
+
+.category-score {
+    font-weight: 700;
+    color: #0d6efd;
+}
+
+.category-feedback {
+    margin-bottom: 1rem;
+    color: #495057;
+}
+
+.category-suggestions {
+    font-size: 0.9rem;
+    color: #6c757d;
+    padding-left: 1rem;
+    border-left: 3px solid #ffc107;
+}
+
+.summary-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    text-align: left;
+    margin: 2rem 0;
+}
+
+.strengths-section h4 {
+    color: #198754;
+    margin-bottom: 1rem;
+}
+
+.improvements-section h4 {
+    color: #dc3545;
+    margin-bottom: 1rem;
+}
+
+.completion-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.submit-button, .view-history-button, .restart-button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.2s;
+}
+
+.submit-button {
+    background-color: #0d6efd;
+    color: white;
+}
+
+.view-history-button {
+    background-color: #6c757d;
+    color: white;
+}
+
+.restart-button {
+    background-color: white;
+    border: 2px solid #0d6efd;
+    color: #0d6efd;
+}
+
+.submission-loader {
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+    border: 2px solid white;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 1s linear infinite;
+    margin-right: 0.5rem;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Toast */
+.toast {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background-color: #333;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.toast.show {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+.toast-content {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}

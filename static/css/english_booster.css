@@ -1,0 +1,60 @@
+/* ===============================
+   English Booster Page Styling
+================================ */
+
+.english-booster {
+  padding: 2rem 0;
+}
+
+.english-booster .header h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  background: linear-gradient(
+    to right,
+    var(--primary-color),
+    var(--accent-color)
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.english-booster .nav-tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.english-booster .nav-tab {
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  border: none;
+  background: white;
+  box-shadow: var(--box-shadow);
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.english-booster .nav-tab.active {
+  background: linear-gradient(
+    135deg,
+    var(--primary-color),
+    var(--accent-color)
+  );
+  color: white;
+}
+
+.english-booster .section {
+  animation: fadeInUp 0.6s ease;
+}
+
+.english-booster .quiz-container,
+.english-booster .speaking-container,
+.english-booster .writing-container {
+  background: white;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 2rem;
+  margin-top: 2rem;
+}

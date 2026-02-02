@@ -1,0 +1,74 @@
+.roadmap-content {
+    font-family: 'Source Code Pro', monospace, sans-serif;
+    white-space: pre-wrap;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    border: 1px solid #e9ecef;
+    max-height: 600px;
+    overflow-y: auto;
+    line-height: 1.6;
+}
+
+.roadmap-content pre {
+    font-family: inherit;
+    white-space: pre-wrap;
+    margin: 0;
+}
+
+.card-header.bg-primary {
+    background: linear-gradient(135deg, #4285f4, #34a853) !important;
+}
+
+.card-header.bg-success {
+    background: linear-gradient(135deg, #34a853, #4285f4) !important;
+}
+
+.form-group label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #4285f4, #34a853);
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #34a853, #4285f4);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.btn-outline-primary {
+    border-color: #4285f4;
+    color: #4285f4;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+    background-color: #4285f4;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Loading animation */
+.loading {
+    display: none;
+    text-align: center;
+    padding: 20px;
+}
+
+.loading .spinner-border {
+    width: 3rem;
+    height: 3rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .roadmap-content {
+        max-height: 400px;
+    }
+} 

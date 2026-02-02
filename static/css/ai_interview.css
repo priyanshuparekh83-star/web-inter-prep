@@ -1,0 +1,207 @@
+/* AI Interview Page Styles */
+.card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.card-header {
+    background-color: #fff;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding: 1.25rem;
+}
+
+/* Interview Setup Form */
+.form-control, .form-select {
+    border-radius: 8px;
+    padding: 0.75rem;
+    border: 1px solid #e2e8f0;
+    transition: all 0.2s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #4e73df;
+    box-shadow: 0 0 0 0.2rem rgba(78,115,223,0.25);
+}
+
+/* Interview Session */
+.question-section {
+    background: #f8f9fc;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.question-text {
+    color: #2d3748;
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+}
+
+.answer-section {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+#answerInput {
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 1rem;
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Feedback Section */
+.feedback-section {
+    background: #f8f9fc;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.feedback-content {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1.25rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+/* Interview History Table */
+.table {
+    margin-bottom: 0;
+}
+
+.table th {
+    border-top: none;
+    font-weight: 600;
+    color: #495057;
+    padding: 1rem;
+}
+
+.table td {
+    padding: 1rem;
+    vertical-align: middle;
+}
+
+.progress {
+    height: 20px;
+    border-radius: 10px;
+    background-color: #e9ecef;
+}
+
+.progress-bar {
+    background: linear-gradient(90deg, #4e73df 0%, #224abe 100%);
+    border-radius: 10px;
+    transition: width 0.6s ease;
+}
+
+/* Buttons */
+.btn {
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(90deg, #4e73df 0%, #224abe 100%);
+    border: none;
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(78,115,223,0.2);
+}
+
+.btn-outline-primary {
+    border-color: #4e73df;
+    color: #4e73df;
+}
+
+.btn-outline-primary:hover {
+    background: #4e73df;
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+/* Modal */
+.modal-content {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.modal-header {
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    padding: 1.25rem;
+}
+
+.modal-body {
+    padding: 1.5rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .card {
+        margin-bottom: 1rem;
+    }
+    
+    .question-text {
+        font-size: 1.1rem;
+    }
+    
+    .table-responsive {
+        margin: 0 -1.5rem;
+    }
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.feedback-section {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Interview Progress */
+.interview-progress {
+    background: #f8f9fc;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    color: #4e73df;
+    font-weight: 500;
+}
+
+/* Empty State */
+.text-center.py-5 {
+    color: #718096;
+}
+
+.text-center.py-5 i {
+    color: #cbd5e0;
+}
+
+/* Icons */
+.fas {
+    font-size: 1.1rem;
+}
+
+/* Hover Effects */
+.table-hover tbody tr:hover {
+    background-color: rgba(78,115,223,0.05);
+}
+
+.btn-group .btn:hover {
+    transform: translateY(-1px);
+} 

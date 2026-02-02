@@ -1,0 +1,192 @@
+/* Custom CSS for navbar spacing */
+
+/* Reduce spacing between Bootstrap 5 navbar items */
+.navbar-nav .nav-item {
+    margin-right: 10px !important;
+}
+
+.navbar-nav .nav-item:last-child {
+    margin-right: 0 !important;
+}
+
+/* For mobile views, ensure proper spacing */
+@media (max-width: 768px) {
+    .navbar-nav .nav-item {
+        margin-right: 0 !important;
+        margin-bottom: 5px;
+    }
+}
+
+/* Override any Bootstrap classes that might affect spacing */
+.navbar-expand-lg .navbar-nav .nav-link {
+    padding-right: 0.5rem !important;
+    padding-left: 0.5rem !important;
+    font-size: 0.9rem !important; /* Reduced font size by ~3px */
+}
+
+/* Ensure the nav items are vertically aligned */
+.navbar-nav {
+    align-items: center !important;
+}
+
+/* Fix for potential icon spacing issues */
+.nav-link i {
+    margin-right: 0.5rem !important;
+    color: rgba(220, 220, 220, 0.9) !important; /* Whitish grey color for icons */
+    font-size: 0.9rem !important; /* Reduced icon size by ~3px */
+}
+
+/* Hover effect for nav icons */
+.nav-link:hover i {
+    color: #ffffff !important; /* Brighter white on hover */
+}
+
+/* Make the logout button always visible */
+.logout-option {
+    display: inline-flex !important;
+    align-items: center;
+}
+
+/* Reduce navbar brand text size */
+.navbar-brand {
+    font-size: 1.1rem !important; /* Reduced brand size by ~3px */
+}
+
+/* Increase logo font size */
+.navbar-brand.logo-large {
+    font-size: 1.5rem !important; /* Increased logo size */
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* Direct Navigation Buttons */
+.direct-nav {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-btn {
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.85);
+    border: none;
+    padding: 0.4rem 0.8rem;
+    transition: all 0.2s ease;
+}
+
+.nav-btn:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-btn i {
+    margin-right: 8px;
+    color: rgba(220, 220, 220, 0.9);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .direct-nav {
+        gap: 5px;
+    }
+    
+    .nav-btn {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* More Dropdown Styling */
+.nav-more-container {
+    position: relative;
+}
+
+.nav-more-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.nav-more-btn:hover, 
+.nav-more-btn:focus {
+    color: #ffffff;
+}
+
+.nav-more-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 240px;
+    background-color: #343a40;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.nav-more-dropdown.show {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.nav-more-content {
+    padding: 15px;
+}
+
+.nav-more-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-more-header h5 {
+    margin: 0;
+    color: #fff;
+    font-size: 1rem;
+}
+
+.nav-more-items {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.nav-more-items a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+}
+
+.nav-more-items a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+
+.nav-more-items a i {
+    margin-right: 10px;
+    width: 20px;
+    text-align: center;
+    color: rgba(220, 220, 220, 0.9);
+}
+
+/* Authentication controls */
+.auth-controls {
+    display: flex;
+    align-items: center;
+} 
