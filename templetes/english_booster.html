@@ -1,0 +1,675 @@
+{% extends "layout.html" %}
+
+{% block title %}English Booster - Interactive Practice{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/english_booster.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="english-booster">
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🚀 English Booster</h1>
+            <p>Master grammar, speaking, and writing with interactive practice</p>
+        </div>
+
+        <!-- Navigation Tabs -->
+        <div class="nav-tabs">
+            <button class="nav-tab active" onclick="switchSection('quiz')">
+                📚 Grammar Quiz
+            </button>
+            <button class="nav-tab" onclick="switchSection('speak')">
+                🎤 Speaking Practice
+            </button>
+            <button class="nav-tab" onclick="switchSection('write')">
+                ✍️ Writing Assistant
+            </button>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            
+            <!-- Grammar Quiz Section -->
+            <div id="quiz" class="section active">
+                <div class="quiz-container">
+                    <div class="quiz-header">
+                        <div class="quiz-progress">
+                            Question <span id="current-question">1</span> of <span id="total-questions">10</span>
+                        </div>
+                        <div class="quiz-score">
+                            Score: <span id="quiz-score">0</span>/10
+                        </div>
+                    </div>
+
+                    <div id="quiz-content">
+                        <div class="text-center" id="quiz-loading">
+                            <div class="spinner"></div>
+                            Loading questions...
+                        </div>
+                    </div>
+
+                    <div id="quiz-results" class="quiz-results" style="display: none;">
+                        <div class="final-score" id="final-score">0/10</div>
+                        <div class="score-message" id="score-message">Great job!</div>
+                        <button class="btn btn-primary" onclick="startQuiz()">Take Quiz Again</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Speaking Practice Section -->
+            <div id="speak" class="section">
+                <div class="speaking-container">
+                    <div class="text-center mb-3">
+                        <button class="btn btn-outline" onclick="getNewPrompt()">
+                            🔄 Get New Prompt
+                        </button>
+                    </div>
+
+                    <div id="prompt-card" class="prompt-card">
+                        <div class="prompt-category" id="prompt-category">Loading...</div>
+                        <div class="prompt-text" id="prompt-text">Getting a new speaking prompt for you...</div>
+                        <div class="prompt-duration">
+                            Duration: <span id="prompt-duration">60</span> seconds
+                        </div>
+                        <div class="mt-2">
+                            <small id="prompt-tips" style="opacity: 0.8;"></small>
+                        </div>
+                    </div>
+
+                    <div class="recording-controls">
+                        <button id="record-btn" class="record-btn start" onclick="toggleRecording()">
+                            🎤
+                        </button>
+                        <div class="recording-status" id="recording-status">Click to start recording</div>
+                    </div>
+
+                    <div id="transcript-section" class="transcript-section" style="display: none;">
+                        <h3>Your Response:</h3>
+                        <div id="transcript-text" class="transcript-text">
+                            Your transcribed speech will appear here...
+                        </div>
+                        
+                        <div class="grammar-score" id="grammar-score-section" style="display: none;">
+                            <div id="score-circle" class="score-circle score-good">
+                                <span id="grammar-score-value">85%</span>
+                            </div>
+                            <div>
+                                <div><strong>Grammar Score</strong></div>
+                                <div id="grammar-feedback">Good job! Minor improvements needed.</div>
+                            </div>
+                        </div>
+
+                        <div class="text-center mt-3">
+                            <button class="btn btn-primary" onclick="checkGrammar()">
+                                📝 Check Grammar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Writing Assistant Section -->
+            <div id="write" class="section">
+                <div class="writing-container">
+                    <div class="writing-area">
+                        <div class="text-input-section">
+                            <textarea 
+                                id="writing-text" 
+                                class="text-input" 
+                                placeholder="Start writing your text here... The writing assistant will help you improve grammar, style, and clarity."
+                                oninput="updateWordCount()"
+                            ></textarea>
+                            <div class="word-count">
+                                Words: <span id="word-count">0</span> | Characters: <span id="char-count">0</span>
+                            </div>
+                        </div>
+
+                        <div class="sidebar">
+                            <h3>📝 Grammar Suggestions</h3>
+                            <div id="error-list" class="error-list">
+                                <div class="text-center" style="color: #666; padding: 2rem;">
+                                    Click "Check Grammar" to see suggestions
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="writing-controls">
+                        <button class="btn btn-primary" onclick="checkWritingGrammar()">
+                            🔍 Check Grammar
+                        </button>
+                        <button class="btn btn-success" onclick="applyAllFixes()" id="apply-fixes-btn" style="display: none;">
+                            ✨ Apply All Fixes
+                        </button>
+                        <button class="btn btn-secondary" onclick="clearText()">
+                            🗑️ Clear Text
+                        </button>
+                    </div>
+
+                    <div id="writing-results" style="margin-top: 2rem; display: none;">
+                        <div class="grammar-score">
+                            <div id="writing-score-circle" class="score-circle score-good">
+                                <span id="writing-score-value">90%</span>
+                            </div>
+                            <div>
+                                <div><strong>Overall Score</strong></div>
+                                <div id="writing-feedback">Your writing looks great!</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Toast Notification -->
+<div id="toast" class="toast"></div>
+
+<script>
+// Global variables
+let currentQuestions = [];
+let currentQuestionIndex = 0;
+let quizScore = 0;
+let isRecording = false;
+let mediaRecorder = null;
+let audioChunks = [];
+let recognition = null;
+let currentTranscript = '';
+let currentErrors = [];
+
+// Initialize the page
+document.addEventListener('DOMContentLoaded', function() {
+    startQuiz();
+    getNewPrompt();
+    setupSpeechRecognition();
+});
+
+// Section switching
+function switchSection(sectionName) {
+    // Hide all sections
+    document.querySelectorAll('.section').forEach(section => {
+        section.classList.remove('active');
+    });
+    
+    // Remove active class from all tabs
+    document.querySelectorAll('.nav-tab').forEach(tab => {
+        tab.classList.remove('active');
+    });
+    
+    // Show selected section
+    document.getElementById(sectionName).classList.add('active');
+    
+    // Add active class to clicked tab
+    event.target.classList.add('active');
+}
+
+// Toast notifications
+function showToast(message, type = 'info') {
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.className = `toast ${type}`;
+    toast.classList.add('show');
+    
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 3000);
+}
+
+// QUIZ FUNCTIONALITY
+async function startQuiz() {
+    try {
+        document.getElementById('quiz-loading').style.display = 'block';
+        document.getElementById('quiz-results').style.display = 'none';
+        
+        const response = await fetch('/api/grammar_questions');
+        const data = await response.json();
+        
+        if (data.status === 'success') {
+            currentQuestions = data.questions;
+            currentQuestionIndex = 0;
+            quizScore = 0;
+            document.getElementById('quiz-score').textContent = '0';
+            document.getElementById('total-questions').textContent = currentQuestions.length;
+            showQuestion();
+        } else {
+            showToast('Failed to load questions', 'error');
+        }
+    } catch (error) {
+        console.error('Error loading quiz:', error);
+        showToast('Error loading quiz questions', 'error');
+    } finally {
+        document.getElementById('quiz-loading').style.display = 'none';
+    }
+}
+
+function showQuestion() {
+    if (currentQuestionIndex >= currentQuestions.length) {
+        showQuizResults();
+        return;
+    }
+    
+    const question = currentQuestions[currentQuestionIndex];
+    document.getElementById('current-question').textContent = currentQuestionIndex + 1;
+    
+    const quizContent = document.getElementById('quiz-content');
+    quizContent.innerHTML = `
+        <div class="question-card">
+            <div class="question-text">${question.question}</div>
+            <div class="options">
+                ${question.options.map((option, index) => `
+                    <label class="option" onclick="selectOption(${index})">
+                        <input type="radio" name="answer" value="${index}">
+                        ${option}
+                    </label>
+                `).join('')}
+            </div>
+            <div class="quiz-controls">
+                <button class="btn btn-secondary" onclick="previousQuestion()" ${currentQuestionIndex === 0 ? 'disabled' : ''}>
+                    ← Previous
+                </button>
+                <button class="btn btn-primary" onclick="nextQuestion()" id="next-btn" disabled>
+                    Next →
+                </button>
+            </div>
+            <div class="explanation" id="explanation" style="display: none;">
+                <div class="explanation-text" id="explanation-text"></div>
+            </div>
+        </div>
+    `;
+}
+
+function selectOption(optionIndex) {
+    const options = document.querySelectorAll('.option');
+    options.forEach(option => option.classList.remove('selected'));
+    
+    const selectedOption = options[optionIndex];
+    selectedOption.classList.add('selected');
+    
+    document.getElementById('next-btn').disabled = false;
+}
+
+function nextQuestion() {
+    const selectedOption = document.querySelector('input[name="answer"]:checked');
+    if (!selectedOption) return;
+    
+    const selectedIndex = parseInt(selectedOption.value);
+    const question = currentQuestions[currentQuestionIndex];
+    
+    // Show correct answer
+    const options = document.querySelectorAll('.option');
+    options[question.correct].classList.add('correct');
+    
+    if (selectedIndex === question.correct) {
+        quizScore++;
+        document.getElementById('quiz-score').textContent = quizScore;
+    } else {
+        options[selectedIndex].classList.add('incorrect');
+    }
+    
+    // Show explanation
+    document.getElementById('explanation').style.display = 'block';
+    document.getElementById('explanation-text').textContent = question.explanation;
+    
+    // Update next button
+    document.getElementById('next-btn').onclick = () => {
+        currentQuestionIndex++;
+        showQuestion();
+    };
+    document.getElementById('next-btn').textContent = currentQuestionIndex === currentQuestions.length - 1 ? 'Finish' : 'Next →';
+}
+
+function previousQuestion() {
+    if (currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+        showQuestion();
+    }
+}
+
+function showQuizResults() {
+    const percentage = Math.round((quizScore / currentQuestions.length) * 100);
+    let message = '';
+    
+    if (percentage >= 90) message = 'Excellent! You have mastered English grammar! 🌟';
+    else if (percentage >= 70) message = 'Great job! You have a solid understanding of grammar! 👍';
+    else if (percentage >= 50) message = 'Good effort! Keep practicing to improve your grammar skills! 📚';
+    else message = 'Keep practicing! Grammar skills improve with regular practice! 💪';
+    
+    document.getElementById('final-score').textContent = `${quizScore}/${currentQuestions.length} (${percentage}%)`;
+    document.getElementById('score-message').textContent = message;
+    
+    document.getElementById('quiz-content').style.display = 'none';
+    document.getElementById('quiz-results').style.display = 'block';
+}
+
+// SPEAKING FUNCTIONALITY
+async function getNewPrompt() {
+    try {
+        const response = await fetch('/api/speaking_prompts');
+        const data = await response.json();
+        
+        if (data.status === 'success') {
+            const prompt = data.prompt;
+            document.getElementById('prompt-category').textContent = prompt.category;
+            document.getElementById('prompt-text').textContent = prompt.prompt;
+            document.getElementById('prompt-duration').textContent = prompt.duration;
+            document.getElementById('prompt-tips').textContent = 'Tips: ' + prompt.tips.join(', ');
+        } else {
+            showToast('Failed to load speaking prompt', 'error');
+        }
+    } catch (error) {
+        console.error('Error loading prompt:', error);
+        showToast('Error loading speaking prompt', 'error');
+    }
+}
+
+function setupSpeechRecognition() {
+    if ('webkitSpeechRecognition' in window || 'SpeechRecognition' in window) {
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        recognition = new SpeechRecognition();
+        recognition.continuous = true;
+        recognition.interimResults = true;
+        recognition.lang = 'en-US';
+        
+        recognition.onresult = function(event) {
+            let transcript = '';
+            for (let i = event.resultIndex; i < event.results.length; i++) {
+                if (event.results[i].isFinal) {
+                    transcript += event.results[i][0].transcript + ' ';
+                }
+            }
+            currentTranscript = transcript.trim();
+            document.getElementById('transcript-text').textContent = currentTranscript || 'Listening...';
+        };
+        
+        recognition.onerror = function(event) {
+            console.error('Speech recognition error:', event.error);
+            showToast('Speech recognition error: ' + event.error, 'error');
+        };
+        
+        recognition.onend = function() {
+            if (isRecording) {
+                // Restart recognition if we're still supposed to be recording
+                recognition.start();
+            }
+        };
+    } else {
+        console.warn('Speech recognition not supported');
+        document.getElementById('recording-status').textContent = 'Speech recognition not supported in this browser';
+    }
+}
+
+function toggleRecording() {
+    if (!recognition) {
+        showToast('Speech recognition not available', 'error');
+        return;
+    }
+    
+    if (isRecording) {
+        stopRecording();
+    } else {
+        startRecording();
+    }
+}
+
+function startRecording() {
+    isRecording = true;
+    currentTranscript = '';
+    
+    const recordBtn = document.getElementById('record-btn');
+    recordBtn.classList.remove('start');
+    recordBtn.classList.add('stop', 'recording');
+    recordBtn.innerHTML = '⏹️';
+    
+    document.getElementById('recording-status').textContent = 'Recording... Click to stop';
+    document.getElementById('transcript-section').style.display = 'block';
+    document.getElementById('transcript-text').textContent = 'Listening...';
+    
+    recognition.start();
+}
+
+function stopRecording() {
+    isRecording = false;
+    
+    const recordBtn = document.getElementById('record-btn');
+    recordBtn.classList.remove('stop', 'recording');
+    recordBtn.classList.add('start');
+    recordBtn.innerHTML = '🎤';
+    
+    document.getElementById('recording-status').textContent = 'Recording stopped. Click to start again';
+    
+    recognition.stop();
+    
+    if (currentTranscript) {
+        document.getElementById('transcript-text').textContent = currentTranscript;
+    } else {
+        document.getElementById('transcript-text').textContent = 'No speech detected. Please try again.';
+    }
+}
+
+async function checkGrammar() {
+    if (!currentTranscript) {
+        showToast('No transcript to check', 'error');
+        return;
+    }
+    
+    try {
+        const response = await fetch('/api/check_grammar', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ text: currentTranscript })
+        });
+        
+        const data = await response.json();
+        
+        if (data.status === 'success') {
+            displayGrammarResults(data);
+        } else {
+            showToast('Grammar check failed', 'error');
+        }
+    } catch (error) {
+        console.error('Error checking grammar:', error);
+        showToast('Error checking grammar', 'error');
+    }
+}
+
+function displayGrammarResults(data) {
+    const scoreSection = document.getElementById('grammar-score-section');
+    const scoreCircle = document.getElementById('score-circle');
+    const scoreValue = document.getElementById('grammar-score-value');
+    const feedback = document.getElementById('grammar-feedback');
+    
+    scoreValue.textContent = data.score + '%';
+    
+    // Set score color
+    scoreCircle.className = 'score-circle';
+    if (data.score >= 85) {
+        scoreCircle.classList.add('score-excellent');
+        feedback.textContent = 'Excellent grammar! Your speech is clear and well-structured.';
+    } else if (data.score >= 70) {
+        scoreCircle.classList.add('score-good');
+        feedback.textContent = 'Good grammar with minor improvements needed.';
+    } else {
+        scoreCircle.classList.add('score-needs-improvement');
+        feedback.textContent = 'Grammar needs improvement. Keep practicing!';
+    }
+    
+    scoreSection.style.display = 'flex';
+    
+    if (data.errors && data.errors.length > 0) {
+        highlightErrors(data.errors);
+    }
+}
+
+// WRITING FUNCTIONALITY
+function updateWordCount() {
+    const text = document.getElementById('writing-text').value;
+    const words = text.trim() ? text.trim().split(/\s+/).length : 0;
+    const chars = text.length;
+    
+    document.getElementById('word-count').textContent = words;
+    document.getElementById('char-count').textContent = chars;
+}
+
+async function checkWritingGrammar() {
+    const text = document.getElementById('writing-text').value.trim();
+    
+    if (!text) {
+        showToast('Please enter some text to check', 'error');
+        return;
+    }
+    
+    try {
+        showToast('Checking grammar...', 'info');
+        
+        const response = await fetch('/api/check_grammar', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ text: text })
+        });
+        
+        const data = await response.json();
+        
+        if (data.status === 'success') {
+            displayWritingResults(data);
+            currentErrors = data.errors || [];
+        } else {
+            showToast('Grammar check failed', 'error');
+        }
+    } catch (error) {
+        console.error('Error checking grammar:', error);
+        showToast('Error checking grammar', 'error');
+    }
+}
+
+function displayWritingResults(data) {
+    // Show overall score
+    const resultsSection = document.getElementById('writing-results');
+    const scoreCircle = document.getElementById('writing-score-circle');
+    const scoreValue = document.getElementById('writing-score-value');
+    const feedback = document.getElementById('writing-feedback');
+    
+    scoreValue.textContent = data.score + '%';
+    
+    // Set score color
+    scoreCircle.className = 'score-circle';
+    if (data.score >= 85) {
+        scoreCircle.classList.add('score-excellent');
+        feedback.textContent = 'Excellent writing! Very few errors detected.';
+    } else if (data.score >= 70) {
+        scoreCircle.classList.add('score-good');
+        feedback.textContent = `Good writing with ${data.errorCount} error(s) to fix.`;
+    } else {
+        scoreCircle.classList.add('score-needs-improvement');
+        feedback.textContent = `${data.errorCount} error(s) found. Let's improve your writing!`;
+    }
+    
+    resultsSection.style.display = 'block';
+    
+    // Display errors in sidebar
+    displayErrorList(data.errors || []);
+    
+    // Show apply fixes button if there are errors
+    if (data.errors && data.errors.length > 0) {
+        document.getElementById('apply-fixes-btn').style.display = 'inline-block';
+    }
+}
+
+function displayErrorList(errors) {
+    const errorList = document.getElementById('error-list');
+    
+    if (errors.length === 0) {
+        errorList.innerHTML = '<div class="text-center" style="color: #28a745; padding: 2rem;">✅ No grammar errors found!</div>';
+        return;
+    }
+    
+    errorList.innerHTML = errors.map((error, index) => `
+        <div class="error-item">
+            <div class="error-message">${error.message}</div>
+            ${error.replacements.length > 0 ? `
+                <div class="error-suggestions">
+                    ${error.replacements.map(replacement => `
+                        <button class="suggestion-btn" onclick="applySuggestion(${index}, '${replacement.replace(/'/g, "\\'")}')">
+                            ${replacement}
+                        </button>
+                    `).join('')}
+                </div>
+            ` : ''}
+        </div>
+    `).join('');
+}
+
+function applySuggestion(errorIndex, suggestion) {
+    const error = currentErrors[errorIndex];
+    const textarea = document.getElementById('writing-text');
+    const text = textarea.value;
+    
+    // Replace the error text with the suggestion
+    const beforeError = text.substring(0, error.offset);
+    const afterError = text.substring(error.offset + error.length);
+    const newText = beforeError + suggestion + afterError;
+    
+    textarea.value = newText;
+    updateWordCount();
+    
+    // Remove the applied error from the list
+    currentErrors.splice(errorIndex, 1);
+    displayErrorList(currentErrors);
+    
+    showToast('Suggestion applied!', 'success');
+}
+
+function applyAllFixes() {
+    if (currentErrors.length === 0) {
+        showToast('No fixes to apply', 'info');
+        return;
+    }
+    
+    let text = document.getElementById('writing-text').value;
+    
+    // Apply fixes in reverse order to maintain correct offsets
+    currentErrors.sort((a, b) => b.offset - a.offset);
+    
+    currentErrors.forEach(error => {
+        if (error.replacements.length > 0) {
+            const beforeError = text.substring(0, error.offset);
+            const afterError = text.substring(error.offset + error.length);
+            text = beforeError + error.replacements[0] + afterError;
+        }
+    });
+    
+    document.getElementById('writing-text').value = text;
+    updateWordCount();
+    
+    currentErrors = [];
+    displayErrorList([]);
+    document.getElementById('apply-fixes-btn').style.display = 'none';
+    
+    showToast('All fixes applied!', 'success');
+}
+
+function clearText() {
+    if (confirm('Are you sure you want to clear all text?')) {
+        document.getElementById('writing-text').value = '';
+        updateWordCount();
+        document.getElementById('error-list').innerHTML = '<div class="text-center" style="color: #666; padding: 2rem;">Click "Check Grammar" to see suggestions</div>';
+        document.getElementById('writing-results').style.display = 'none';
+        document.getElementById('apply-fixes-btn').style.display = 'none';
+        currentErrors = [];
+    }
+}
+
+function highlightErrors(errors) {
+    // This function could be enhanced to highlight errors in the transcript
+    // For now, we'll just show them in the console
+    console.log('Grammar errors found:', errors);
+}
+</script>
+
+{% endblock %}

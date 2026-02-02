@@ -1,0 +1,379 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card shadow-lg">
+                <div class="card-header bg-gradient text-white" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                    <h2 class="mb-0 text-center">
+                        <i class="fas fa-comments me-2"></i>English Communication Skills
+                    </h2>
+                    <p class="mb-0 text-center mt-2 opacity-90">Improve your English for better interview performance</p>
+                </div>
+                
+                <div class="card-body p-4">
+                    <!-- Instructions -->
+                    <div class="alert alert-info border-0 mb-4" role="alert">
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-info-circle me-2"></i>
+                            <div>
+                                <strong>How it works:</strong> Enter your paragraph below, click "Correct & Speak" to get AI-powered improvements and pronunciation practice.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Input Section -->
+                    <div class="mb-4">
+                        <label for="userInput" class="form-label h5">
+                            <i class="fas fa-edit me-2 text-primary"></i>Enter your paragraph
+                        </label>
+                        <textarea 
+                            id="userInput" 
+                            class="form-control form-control-lg" 
+                            rows="6" 
+                            placeholder="Type or paste your paragraph here. For example: 'I am very good person and I have lot of experience in this field and I think I can do this job very well because I have worked many places before...'"
+                            aria-describedby="inputHelp"
+                        ></textarea>
+                        <div id="inputHelp" class="form-text">
+                            <i class="fas fa-lightbulb me-1"></i>Tip: Include interview-related content for best results
+                        </div>
+                    </div>
+
+                    <!-- Action Button -->
+                    <div class="text-center mb-4">
+                        <button 
+                            id="correctSpeakBtn" 
+                            class="btn btn-primary btn-lg px-5 py-3"
+                            onclick="correctAndSpeak()"
+                            aria-describedby="buttonHelp"
+                        >
+                            <i class="fas fa-magic me-2"></i>Correct & Speak
+                        </button>
+                        <div id="buttonHelp" class="form-text mt-2">
+                            This will improve your text and provide pronunciation practice
+                        </div>
+                    </div>
+
+                    <!-- Loading Indicator -->
+                    <div id="loadingIndicator" class="text-center mb-4" style="display: none;">
+                        <div class="spinner-border text-primary me-2" role="status" aria-hidden="true"></div>
+                        <span id="loadingText">Processing your text...</span>
+                    </div>
+
+                    <!-- Results Section -->
+                    <div id="resultsSection" style="display: none;">
+                        <!-- Side by Side Comparison -->
+                        <div class="row mb-4">
+                            <div class="col-md-6">
+                                <div class="card border-warning">
+                                    <div class="card-header bg-warning bg-opacity-10">
+                                        <h5 class="mb-0">
+                                            <i class="fas fa-file-alt me-2 text-warning"></i>Original Text
+                                        </h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div id="originalText" class="text-muted"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="card border-success">
+                                    <div class="card-header bg-success bg-opacity-10">
+                                        <h5 class="mb-0">
+                                            <i class="fas fa-check-circle me-2 text-success"></i>Improved English
+                                        </h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div id="improvedText" class="fw-medium"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Improvements Section -->
+                        <div id="improvementsSection" class="mb-4">
+                            <div class="card border-info">
+                                <div class="card-header bg-info bg-opacity-10">
+                                    <h5 class="mb-0">
+                                        <i class="fas fa-lightbulb me-2 text-info"></i>Key Improvements Made
+                                    </h5>
+                                </div>
+                                <div class="card-body">
+                                    <div id="improvementsList"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Audio Section -->
+                        <div class="card border-primary">
+                            <div class="card-header bg-primary bg-opacity-10">
+                                <h5 class="mb-0">
+                                    <i class="fas fa-volume-up me-2 text-primary"></i>Listen to Pronunciation
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <div id="audioControls" class="text-center">
+                                    <button id="playAudioBtn" class="btn btn-success btn-lg me-3" onclick="playAudio()" disabled>
+                                        <i class="fas fa-play me-2"></i>Play Audio
+                                    </button>
+                                    <button id="downloadAudioBtn" class="btn btn-outline-primary" onclick="downloadAudio()" disabled>
+                                        <i class="fas fa-download me-2"></i>Download Audio
+                                    </button>
+                                </div>
+                                <div id="audioPlayer" class="mt-3" style="display: none;">
+                                    <audio id="audioElement" controls class="w-100">
+                                        Your browser does not support the audio element.
+                                    </audio>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Error Display -->
+                    <div id="errorSection" class="alert alert-danger" style="display: none;" role="alert">
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-exclamation-triangle me-2"></i>
+                            <div id="errorMessage"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+let currentAudioUrl = null;
+
+async function correctAndSpeak() {
+    const userInput = document.getElementById('userInput').value.trim();
+    
+    if (!userInput) {
+        showError('Please enter some text to improve.');
+        return;
+    }
+
+    const correctSpeakBtn = document.getElementById('correctSpeakBtn');
+    const loadingIndicator = document.getElementById('loadingIndicator');
+    const resultsSection = document.getElementById('resultsSection');
+    const errorSection = document.getElementById('errorSection');
+
+    // Reset UI
+    correctSpeakBtn.disabled = true;
+    loadingIndicator.style.display = 'block';
+    resultsSection.style.display = 'none';
+    errorSection.style.display = 'none';
+    
+    try {
+        // Step 1: Correct the text using Gemini API
+        updateLoadingText('Improving your English...');
+        const correctionResponse = await fetch('/correct_text', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                text: userInput
+            })
+        });
+
+        if (!correctionResponse.ok) {
+            throw new Error('Failed to improve text');
+        }
+
+        const correctionData = await correctionResponse.json();
+        const improvedText = correctionData.improved_text;
+        const improvements = correctionData.improvements || [];
+
+        // Display the results
+        document.getElementById('originalText').textContent = userInput;
+        document.getElementById('improvedText').textContent = improvedText;
+        
+        // Display improvements
+        displayImprovements(improvements);
+
+        // Step 2: Generate speech using text-to-speech
+        updateLoadingText('Generating audio pronunciation...');
+        const speechResponse = await fetch('/text_to_speech', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                text: improvedText
+            })
+        });
+
+        if (!speechResponse.ok) {
+            throw new Error('Failed to generate speech');
+        }
+
+        const speechData = await speechResponse.json();
+        
+        // Show results section
+        resultsSection.style.display = 'block';
+        
+        // Set up audio
+        if (speechData.audio_url) {
+            currentAudioUrl = speechData.audio_url;
+            setupAudio(speechData.audio_url);
+        } else {
+            // Fallback to browser's speech synthesis
+            setupBrowserSpeech(improvedText);
+        }
+
+    } catch (error) {
+        console.error('Error:', error);
+        showError('An error occurred while processing your text. Please try again.');
+    } finally {
+        correctSpeakBtn.disabled = false;
+        loadingIndicator.style.display = 'none';
+    }
+}
+
+function displayImprovements(improvements) {
+    const improvementsList = document.getElementById('improvementsList');
+    
+    if (improvements && improvements.length > 0) {
+        const listHtml = improvements.map(improvement => 
+            `<div class="mb-2">
+                <i class="fas fa-arrow-right text-info me-2"></i>
+                ${improvement}
+            </div>`
+        ).join('');
+        improvementsList.innerHTML = listHtml;
+    } else {
+        improvementsList.innerHTML = '<div class="text-muted">Your text was already well-written! Minor improvements have been made for interview context.</div>';
+    }
+}
+
+function setupAudio(audioUrl) {
+    const audioElement = document.getElementById('audioElement');
+    const audioPlayer = document.getElementById('audioPlayer');
+    const playAudioBtn = document.getElementById('playAudioBtn');
+    const downloadAudioBtn = document.getElementById('downloadAudioBtn');
+
+    audioElement.src = audioUrl;
+    audioPlayer.style.display = 'block';
+    playAudioBtn.disabled = false;
+    downloadAudioBtn.disabled = false;
+}
+
+function setupBrowserSpeech(text) {
+    const playAudioBtn = document.getElementById('playAudioBtn');
+    playAudioBtn.disabled = false;
+    
+    // Modify play button to use browser speech
+    playAudioBtn.onclick = function() {
+        speakText(text);
+    };
+    
+    // Hide download button for browser speech
+    document.getElementById('downloadAudioBtn').style.display = 'none';
+}
+
+function playAudio() {
+    const audioElement = document.getElementById('audioElement');
+    if (audioElement.src) {
+        audioElement.play();
+    }
+}
+
+function downloadAudio() {
+    if (currentAudioUrl) {
+        const link = document.createElement('a');
+        link.href = currentAudioUrl;
+        link.download = 'improved_pronunciation.mp3';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+}
+
+function speakText(text) {
+    if ('speechSynthesis' in window) {
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 0.8;
+        utterance.pitch = 1;
+        utterance.volume = 1;
+        window.speechSynthesis.speak(utterance);
+    }
+}
+
+function updateLoadingText(text) {
+    document.getElementById('loadingText').textContent = text;
+}
+
+function showError(message) {
+    const errorSection = document.getElementById('errorSection');
+    const errorMessage = document.getElementById('errorMessage');
+    
+    errorMessage.textContent = message;
+    errorSection.style.display = 'block';
+    
+    // Auto-hide error after 5 seconds
+    setTimeout(() => {
+        errorSection.style.display = 'none';
+    }, 5000);
+}
+
+// Keyboard accessibility
+document.getElementById('userInput').addEventListener('keydown', function(e) {
+    if (e.ctrlKey && e.key === 'Enter') {
+        correctAndSpeak();
+    }
+});
+
+// Auto-resize textarea
+document.getElementById('userInput').addEventListener('input', function() {
+    this.style.height = 'auto';
+    this.style.height = (this.scrollHeight) + 'px';
+});
+</script>
+
+<style>
+.card {
+    border: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.form-control:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 0.2rem rgba(102, 126, 234, 0.25);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border: none;
+    transition: transform 0.2s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.spinner-border {
+    width: 2rem;
+    height: 2rem;
+}
+
+#userInput {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.card-header h5 {
+    font-weight: 600;
+}
+
+.text-muted {
+    color: #6c757d !important;
+}
+
+.bg-gradient {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+</style>
+{% endblock %} 

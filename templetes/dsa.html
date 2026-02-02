@@ -1,0 +1,171 @@
+{% extends "layout.html" %}
+
+{% block title %}DSA Practice{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-primary text-white py-4">
+                    <h2 class="mb-0 text-center">
+                        <i class="fas fa-code me-2"></i>Data Structures & Algorithms
+                    </h2>
+                </div>
+                <div class="card-body p-4">
+                    <div class="text-center mb-4">
+                        <p class="lead">Practice essential DSA problems to prepare for technical interviews</p>
+                    </div>
+
+                    <div class="row mb-5">
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100 shadow-sm hover-card">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-puzzle-piece fa-3x text-primary mb-3"></i>
+                                    <h4>Problem Solving</h4>
+                                    <p class="text-muted">General algorithmic challenges</p>
+                                    <button class="btn btn-primary mt-3" onclick="loadQuestions('problem-solving')">
+                                        <i class="fas fa-chevron-right me-2"></i>Explore
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100 shadow-sm hover-card">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-project-diagram fa-3x text-primary mb-3"></i>
+                                    <h4>Data Structures</h4>
+                                    <p class="text-muted">Arrays, LinkedLists, Trees, Graphs</p>
+                                    <button class="btn btn-primary mt-3" onclick="loadQuestions('data-structures')">
+                                        <i class="fas fa-chevron-right me-2"></i>Explore
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100 shadow-sm hover-card">
+                                <div class="card-body text-center">
+                                    <i class="fas fa-cogs fa-3x text-primary mb-3"></i>
+                                    <h4>Algorithms</h4>
+                                    <p class="text-muted">Sorting, Searching, Dynamic Programming</p>
+                                    <button class="btn btn-primary mt-3" onclick="loadQuestions('algorithms')">
+                                        <i class="fas fa-chevron-right me-2"></i>Explore
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <section id="practice-questions">
+                        <div class="d-flex align-items-center mb-4">
+                            <h3 class="mb-0"><i class="fas fa-laptop-code me-2"></i>Practice Questions</h3>
+                            <div class="ms-auto">
+                                <select class="form-select" id="difficulty-filter">
+                                    <option value="all">All Difficulties</option>
+                                    <option value="easy">Easy</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="hard">Hard</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="questions-container" class="card shadow-sm">
+                            <div class="card-body py-5 text-center">
+                                <i class="fas fa-arrow-up fa-2x text-muted mb-3"></i>
+                                <p class="lead">Select a category to view practice questions</p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    function loadQuestions(category) {
+        // Sample questions data - in a real app, this would come from an API
+        const questions = {
+            'problem-solving': [
+                { id: 1, title: 'Two Sum', difficulty: 'easy', description: 'Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.' },
+                { id: 2, title: 'Valid Parentheses', difficulty: 'easy', description: 'Given a string s containing just the characters \'(\', \')\', \'{\', \'}\', \'[\' and \']\', determine if the input string is valid.' },
+                { id: 3, title: 'Merge Intervals', difficulty: 'medium', description: 'Given an array of intervals where intervals[i] = [starti, endi], merge all overlapping intervals.' }
+            ],
+            'data-structures': [
+                { id: 4, title: 'Reverse Linked List', difficulty: 'easy', description: 'Given the head of a singly linked list, reverse the list, and return the reversed list.' },
+                { id: 5, title: 'Maximum Depth of Binary Tree', difficulty: 'easy', description: 'Given the root of a binary tree, return its maximum depth.' },
+                { id: 6, title: 'LRU Cache', difficulty: 'medium', description: 'Design a data structure that follows the constraints of a Least Recently Used (LRU) cache.' }
+            ],
+            'algorithms': [
+                { id: 7, title: 'Binary Search', difficulty: 'easy', description: 'Given an array of integers nums which is sorted in ascending order, and an integer target, write a function to search target in nums.' },
+                { id: 8, title: 'Merge Sort', difficulty: 'medium', description: 'Implement the merge sort algorithm to sort an array of integers.' },
+                { id: 9, title: 'Dijkstra\'s Algorithm', difficulty: 'hard', description: 'Implement Dijkstra\'s algorithm to find the shortest path from a source node to all other nodes in a weighted graph.' }
+            ]
+        };
+
+        const container = document.getElementById('questions-container');
+        const difficultyFilter = document.getElementById('difficulty-filter');
+        const selectedCategory = questions[category] || [];
+
+        function renderQuestions(questionsToRender) {
+            if (questionsToRender.length === 0) {
+                container.innerHTML = `
+                <div class="card-body py-5 text-center">
+                    <i class="fas fa-exclamation-circle fa-2x text-muted mb-3"></i>
+                    <p class="lead">No questions found for this category and difficulty</p>
+                </div>
+            `;
+                return;
+            }
+
+            let html = '<div class="list-group">';
+            questionsToRender.forEach(q => {
+                const difficultyClass = q.difficulty === 'easy' ? 'success' :
+                    q.difficulty === 'medium' ? 'warning' : 'danger';
+
+                html += `
+                <div class="list-group-item list-group-item-action">
+                    <div class="d-flex w-100 justify-content-between align-items-center">
+                        <h5 class="mb-1">${q.title}</h5>
+                        <span class="badge bg-${difficultyClass}">${q.difficulty}</span>
+                    </div>
+                    <p class="mb-1">${q.description}</p>
+                    <div class="mt-2">
+                        <button class="btn btn-sm btn-outline-primary">View Solution</button>
+                        <button class="btn btn-sm btn-outline-secondary">Hint</button>
+                    </div>
+                </div>
+            `;
+            });
+            html += '</div>';
+            container.innerHTML = html;
+        }
+
+        // Initial render
+        renderQuestions(selectedCategory);
+
+        // Filter event handler
+        difficultyFilter.addEventListener('change', function () {
+            const difficulty = this.value;
+            if (difficulty === 'all') {
+                renderQuestions(selectedCategory);
+            } else {
+                const filtered = selectedCategory.filter(q => q.difficulty === difficulty);
+                renderQuestions(filtered);
+            }
+        });
+    }
+
+    // Ensure the form select works with Bootstrap
+    document.addEventListener('DOMContentLoaded', function () {
+        const difficultyFilter = document.getElementById('difficulty-filter');
+        if (difficultyFilter) {
+            difficultyFilter.addEventListener('change', function () {
+                // This would trigger the filter in a real implementation
+                // For now it's handled in the loadQuestions function
+            });
+        }
+    });
+</script>
+{% endblock %}

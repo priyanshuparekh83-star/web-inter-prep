@@ -1,0 +1,491 @@
+{% extends "layout.html" %}
+
+{% block title %}Learning Resources{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row mb-4">
+        <div class="col-12">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-primary text-white py-4">
+                    <h2 class="mb-0 text-center">
+                        <i class="fas fa-book-reader me-2"></i>Learning Resources
+                    </h2>
+                </div>
+                <div class="card-body p-4">
+                    <p class="lead text-center mb-5">Comprehensive resources to help you ace your technical interviews</p>
+                    
+                    <!-- Search and filter section -->
+                    <div class="row mb-4">
+                        <div class="col-md-8">
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-search"></i></span>
+                                <input type="text" id="resource-search" class="form-control" placeholder="Search resources...">
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <select class="form-select" id="resource-filter">
+                                <option value="all">All Categories</option>
+                                <option value="courses">Video Courses</option>
+                                <option value="practice">Practice Problems</option>
+                                <option value="books">Books & Guides</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Video Courses Section -->
+    <div class="row mb-5 resource-section" data-category="courses">
+        <div class="col-12">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-light py-3">
+                    <h3 class="mb-0">
+                        <i class="fas fa-video me-2 text-primary"></i>Video Courses
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100 shadow-sm hover-card">
+                                <div class="card-body text-center">
+                                    <div class="mb-3">
+                                        <i class="fas fa-code fa-3x text-primary"></i>
+                                    </div>
+                                    <h4>Data Structures & Algorithms</h4>
+                                    <p class="text-muted">Master the fundamentals of DSA for technical interviews</p>
+                                    <button class="btn btn-primary mt-2" onclick="coursedsa()">
+                                        <i class="fas fa-external-link-alt me-2"></i>Start Learning
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100 shadow-sm hover-card">
+                                <div class="card-body text-center">
+                                    <div class="mb-3">
+                                        <i class="fas fa-desktop fa-3x text-primary"></i>
+                                    </div>
+                                    <h4>Web Development</h4>
+                                    <p class="text-muted">Complete guide to frontend and backend development</p>
+                                    <button class="btn btn-primary mt-2" onclick="courseweb()">
+                                        <i class="fas fa-external-link-alt me-2"></i>Start Learning
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100 shadow-sm hover-card">
+                                <div class="card-body text-center">
+                                    <div class="mb-3">
+                                        <i class="fas fa-mobile-alt fa-3x text-primary"></i>
+                                    </div>
+                                    <h4>App Development</h4>
+                                    <p class="text-muted">Build mobile applications for Android and iOS</p>
+                                    <button class="btn btn-primary mt-2" onclick="courseapp()">
+                                        <i class="fas fa-external-link-alt me-2"></i>Start Learning
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100 shadow-sm hover-card">
+                                <div class="card-body text-center">
+                                    <div class="mb-3">
+                                        <i class="fas fa-brain fa-3x text-primary"></i>
+                                    </div>
+                                    <h4>AI & Machine Learning</h4>
+                                    <p class="text-muted">Learn fundamentals of AI and Machine Learning</p>
+                                    <button class="btn btn-primary mt-2" onclick="courseaiml()">
+                                        <i class="fas fa-external-link-alt me-2"></i>Start Learning
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100 shadow-sm hover-card">
+                                <div class="card-body text-center">
+                                    <div class="mb-3">
+                                        <i class="fab fa-react fa-3x text-primary"></i>
+                                    </div>
+                                    <h4>MERN Stack</h4>
+                                    <p class="text-muted">MongoDB, Express, React, and Node.js complete guide</p>
+                                    <button class="btn btn-primary mt-2" onclick="coursemern()">
+                                        <i class="fas fa-external-link-alt me-2"></i>Start Learning
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100 shadow-sm hover-card">
+                                <div class="card-body text-center">
+                                    <div class="mb-3">
+                                        <i class="fab fa-angular fa-3x text-primary"></i>
+                                    </div>
+                                    <h4>MEAN Stack</h4>
+                                    <p class="text-muted">MongoDB, Express, Angular, and Node.js development</p>
+                                    <button class="btn btn-primary mt-2" onclick="coursemean()">
+                                        <i class="fas fa-external-link-alt me-2"></i>Start Learning
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Practice Problems Section -->
+    <div class="row mb-5 resource-section" data-category="practice">
+        <div class="col-12">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-light py-3">
+                    <h3 class="mb-0">
+                        <i class="fas fa-laptop-code me-2 text-primary"></i>Practice Problems
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100 shadow-sm hover-card">
+                                <div class="card-body text-center">
+                                    <div class="mb-3">
+                                        <i class="fas fa-code-branch fa-3x text-primary"></i>
+                                    </div>
+                                    <h4>DSA Problems</h4>
+                                    <p class="text-muted">100 essential Data Structures & Algorithms problems</p>
+                                    <button class="btn btn-primary mt-2" onclick="problemDSA()">
+                                        <i class="fas fa-download me-2"></i>Download PDF
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100 shadow-sm hover-card">
+                                <div class="card-body text-center">
+                                    <div class="mb-3">
+                                        <i class="fas fa-globe fa-3x text-primary"></i>
+                                    </div>
+                                    <h4>Web Development</h4>
+                                    <p class="text-muted">100 Web Development interview problems and solutions</p>
+                                    <button class="btn btn-primary mt-2" onclick="problemWeb()">
+                                        <i class="fas fa-download me-2"></i>Download PDF
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100 shadow-sm hover-card">
+                                <div class="card-body text-center">
+                                    <div class="mb-3">
+                                        <i class="fas fa-mobile-alt fa-3x text-primary"></i>
+                                    </div>
+                                    <h4>App Development</h4>
+                                    <p class="text-muted">100 Mobile App Development problems and solutions</p>
+                                    <button class="btn btn-primary mt-2" onclick="problemApp()">
+                                        <i class="fas fa-download me-2"></i>Download PDF
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100 shadow-sm hover-card">
+                                <div class="card-body text-center">
+                                    <div class="mb-3">
+                                        <i class="fas fa-brain fa-3x text-primary"></i>
+                                    </div>
+                                    <h4>AI & Machine Learning</h4>
+                                    <p class="text-muted">100 AI/ML interview problems and solutions</p>
+                                    <button class="btn btn-primary mt-2" onclick="problemAIML()">
+                                        <i class="fas fa-download me-2"></i>Download PDF
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100 shadow-sm hover-card">
+                                <div class="card-body text-center">
+                                    <div class="mb-3">
+                                        <i class="fab fa-php fa-3x text-primary"></i>
+                                    </div>
+                                    <h4>PHP Development</h4>
+                                    <p class="text-muted">100 PHP programming problems and solutions</p>
+                                    <button class="btn btn-primary mt-2" onclick="problemphp()">
+                                        <i class="fas fa-download me-2"></i>Download PDF
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card h-100 shadow-sm hover-card">
+                                <div class="card-body text-center">
+                                    <div class="mb-3">
+                                        <i class="fas fa-file-code fa-3x text-primary"></i>
+                                    </div>
+                                    <h4>C++ Programming</h4>
+                                    <p class="text-muted">100 C++ programming problems and solutions</p>
+                                    <button class="btn btn-primary mt-2" onclick="problemCpp()">
+                                        <i class="fas fa-download me-2"></i>Download PDF
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Books & Guides -->
+    <div class="row mb-5 resource-section" data-category="books">
+        <div class="col-12">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-light py-3">
+                    <h3 class="mb-0">
+                        <i class="fas fa-book me-2 text-primary"></i>Books & Guides
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 shadow-sm hover-card">
+                                <div class="card-body">
+                                    <div class="d-flex">
+                                        <div class="flex-shrink-0 me-3">
+                                            <i class="fas fa-book-open fa-3x text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h4>Cracking the Coding Interview</h4>
+                                            <p class="text-muted">The most comprehensive guide to technical interview preparation</p>
+                                            <p><strong>Topics:</strong> Data Structures, Algorithms, System Design</p>
+                                            <a href="https://www.amazon.com/Cracking-Coding-Interview-Programming-Questions/dp/0984782850" class="btn btn-primary" target="_blank">
+                                                <i class="fas fa-external-link-alt me-2"></i>View Book
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 shadow-sm hover-card">
+                                <div class="card-body">
+                                    <div class="d-flex">
+                                        <div class="flex-shrink-0 me-3">
+                                            <i class="fas fa-book-open fa-3x text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h4>System Design Interview</h4>
+                                            <p class="text-muted">An insider's guide to system design interviews</p>
+                                            <p><strong>Topics:</strong> Distributed Systems, Scalability, API Design</p>
+                                            <a href="https://www.amazon.com/System-Design-Interview-insiders-Second/dp/B08CMF2CQF" class="btn btn-primary" target="_blank">
+                                                <i class="fas fa-external-link-alt me-2"></i>View Book
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 shadow-sm hover-card">
+                                <div class="card-body">
+                                    <div class="d-flex">
+                                        <div class="flex-shrink-0 me-3">
+                                            <i class="fas fa-book-open fa-3x text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h4>Clean Code</h4>
+                                            <p class="text-muted">A handbook of agile software craftsmanship</p>
+                                            <p><strong>Topics:</strong> Code Quality, Naming, Functions, Classes</p>
+                                            <a href="https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882" class="btn btn-primary" target="_blank">
+                                                <i class="fas fa-external-link-alt me-2"></i>View Book
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mb-4">
+                            <div class="card h-100 shadow-sm hover-card">
+                                <div class="card-body">
+                                    <div class="d-flex">
+                                        <div class="flex-shrink-0 me-3">
+                                            <i class="fas fa-book-open fa-3x text-primary"></i>
+                                        </div>
+                                        <div>
+                                            <h4>Elements of Programming Interviews</h4>
+                                            <p class="text-muted">The insider's guide to programming interviews</p>
+                                            <p><strong>Topics:</strong> Problem Solving, Algorithms, Data Structures</p>
+                                            <a href="https://www.amazon.com/Elements-Programming-Interviews-Insiders-Guide/dp/1479274836" class="btn btn-primary" target="_blank">
+                                                <i class="fas fa-external-link-alt me-2"></i>View Book
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    // Functions for course links
+    function coursedsa() {
+        window.open("https://www.youtube.com/watch?v=yRpLlJmRo2w&list=PLfqMhTWNBTe3LtFWcvwpqTkUSlB32kJop", "_blank");
+    }        
+    
+    function courseweb() {
+        window.open("https://www.youtube.com/watch?v=tVzUXW6siu0&list=PLu0W_9lII9agq5TrH9XLIKQvv0iaF2X3w", "_blank");
+    }
+    
+    function courseapp() {
+        window.open("https://www.youtube.com/watch?v=HyU4vkZ2NB8&list=PLjVLYmrlmjGdDps6HAwOOVoAtBPAgIOXL", "_blank");
+    }
+    
+    function courseaiml() {
+        window.open("https://www.youtube.com/watch?v=O0Ka_nBRtN0", "_blank");
+    }
+    
+    function coursemern() {
+        window.open("https://www.youtube.com/watch?v=Vi9bxu-M-ag&list=PLDzeHZWIZsTo0wSBcg4-NMIbC0L8evLrD", "_blank");
+    }
+    
+    function coursemean() {
+        window.open("https://www.youtube.com/watch?v=48SUuk8e55c", "_blank");
+    }
+    
+    function coursephp() {
+        window.open('https://www.youtube.com/watch?v=D4DXbRsQAOA&list=PL8p2I9GklV44cSOlKzB_0TrzxEgwfvicK', "_blank");
+    }
+    
+    function courseCpp() {
+        window.open('https://www.youtube.com/watch?v=e7sAf4SbS_g', "_blank");
+    }
+    
+    // Functions for problem PDFs
+    function problemDSA() {
+        let link = document.createElement('a');
+        link.href = "{{ url_for('static', filename='100Problem.pdf') }}";
+        link.download = '100ProblemDSA.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+    
+    function problemWeb() {
+        let link = document.createElement('a');
+        link.href = "{{ url_for('static', filename='web_dev_100_questions.pdf') }}";
+        link.download = '100ProblemWEB.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+    
+    function problemApp() {
+        let link = document.createElement('a');
+        link.href = "{{ url_for('static', filename='100problemApp.pdf') }}";
+        link.download = '100ProblemAPP.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+    
+    function problemAIML() {
+        let link = document.createElement('a');
+        link.href = "{{ url_for('static', filename='100AIML.pdf') }}";
+        link.download = '100ProblemAIML.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+    
+    function problemMern() {
+        let link = document.createElement('a');
+        link.href = "{{ url_for('static', filename='100problemmern.pdf') }}";
+        link.download = '100ProblemMERN.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+    
+    function problemMean() {
+        let link = document.createElement('a');
+        link.href = "{{ url_for('static', filename='100problemmean.pdf') }}";
+        link.download = '100ProblemMEAN.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+    
+    function problemphp() {
+        let link = document.createElement('a');
+        link.href = "{{ url_for('static', filename='100problemphp.pdf') }}";
+        link.download = '100ProblemPHP.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+    
+    function problemCpp() {
+        let link = document.createElement('a');
+        link.href = "{{ url_for('static', filename='100problemcpp.pdf') }}";
+        link.download = '100ProblemCPP.pdf';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+    }
+    
+    // Search and filter functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const searchInput = document.getElementById('resource-search');
+        const filterSelect = document.getElementById('resource-filter');
+        const resourceSections = document.querySelectorAll('.resource-section');
+        const resourceCards = document.querySelectorAll('.hover-card');
+        
+        if (searchInput) {
+            searchInput.addEventListener('input', filterResources);
+        }
+        
+        if (filterSelect) {
+            filterSelect.addEventListener('change', filterResources);
+        }
+        
+        function filterResources() {
+            const searchTerm = searchInput.value.toLowerCase();
+            const category = filterSelect.value;
+            
+            // First handle section visibility based on category filter
+            resourceSections.forEach(section => {
+                const sectionCategory = section.getAttribute('data-category');
+                if (category === 'all' || sectionCategory === category) {
+                    section.style.display = 'flex';
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+            
+            // Then handle card visibility based on search term
+            resourceCards.forEach(card => {
+                const cardText = card.textContent.toLowerCase();
+                const cardSection = card.closest('.resource-section');
+                
+                if (cardText.includes(searchTerm) && 
+                    (category === 'all' || cardSection.getAttribute('data-category') === category)) {
+                    card.closest('.col-md-4, .col-md-6').style.display = 'block';
+                } else if (searchTerm) {
+                    card.closest('.col-md-4, .col-md-6').style.display = 'none';
+                } else {
+                    card.closest('.col-md-4, .col-md-6').style.display = 'block';
+                }
+            });
+        }
+    });
+</script>
+{% endblock %} 

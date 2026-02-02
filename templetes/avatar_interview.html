@@ -1,0 +1,330 @@
+{% extends "layout.html" %}
+
+{% block title %}Avatar Interview{% endblock %}
+
+{% block head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/avatar_interview.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="avatar-interview-container">
+    <div class="container">
+        <!-- Header -->
+        <div class="header-section">
+            <h1 class="interview-title">
+                <i class="fas fa-robot me-2"></i>Avatar Interview
+            </h1>
+            <p class="interview-instructions">
+                Meet your AI interviewer! Answer questions naturally as the avatar asks them.
+                Click the microphone when ready to respond.
+            </p>
+
+            <!-- Progress Bar -->
+            <div class="progress-section">
+                <div class="progress-info">
+                    <span id="progressText">Question 1 of 5</span>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Interview Setup Form -->
+        <div class="interview-setup" id="interviewSetup">
+            <div class="setup-card">
+                <div class="setup-header">
+                    <h2><i class="fas fa-cog me-2"></i>Interview Setup</h2>
+                    <p>Configure your personalized avatar interview experience</p>
+                </div>
+
+                <form id="setupForm" class="setup-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="jobRole" class="form-label">
+                                <i class="fas fa-briefcase me-2"></i>Job Role
+                            </label>
+                            <select id="jobRole" class="form-select" required>
+                                <option value="">Select a role...</option>
+                                <option value="Software Engineer">Software Engineer</option>
+                                <option value="Frontend Developer">Frontend Developer</option>
+                                <option value="Backend Developer">Backend Developer</option>
+                                <option value="Full Stack Developer">Full Stack Developer</option>
+                                <option value="Data Scientist">Data Scientist</option>
+                                <option value="Product Manager">Product Manager</option>
+                                <option value="DevOps Engineer">DevOps Engineer</option>
+                                <option value="UI/UX Designer">UI/UX Designer</option>
+                                <option value="Business Analyst">Business Analyst</option>
+                                <option value="Project Manager">Project Manager</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="targetCompany" class="form-label">
+                                <i class="fas fa-building me-2"></i>Target Company
+                            </label>
+                            <select id="targetCompany" class="form-select" required>
+                                <option value="">Select a company...</option>
+                                <option value="Google">Google</option>
+                                <option value="Microsoft">Microsoft</option>
+                                <option value="Amazon">Amazon</option>
+                                <option value="Apple">Apple</option>
+                                <option value="Meta">Meta (Facebook)</option>
+                                <option value="Netflix">Netflix</option>
+                                <option value="Tesla">Tesla</option>
+                                <option value="Startup">Tech Startup</option>
+                                <option value="Enterprise">Large Enterprise</option>
+                                <option value="General">General Company</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="experienceLevel" class="form-label">
+                                <i class="fas fa-chart-line me-2"></i>Experience Level
+                            </label>
+                            <select id="experienceLevel" class="form-select" required>
+                                <option value="">Select level...</option>
+                                <option value="Entry Level">Entry Level (0-2 years)</option>
+                                <option value="Mid Level">Mid Level (2-5 years)</option>
+                                <option value="Senior Level">Senior Level (5-8 years)</option>
+                                <option value="Lead Level">Lead Level (8+ years)</option>
+                                <option value="Executive Level">Executive Level</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="questionCount" class="form-label">
+                                <i class="fas fa-list-ol me-2"></i>Number of Questions
+                            </label>
+                            <select id="questionCount" class="form-select" required>
+                                <option value="">Select count...</option>
+                                <option value="1">1 Question (Trial)</option>
+                                <option value="3">3 Questions (Quick)</option>
+                                <option value="5">5 Questions (Standard)</option>
+                                <option value="7">7 Questions (Comprehensive)</option>
+                                <option value="10">10 Questions (Full Interview)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="start-interview-btn">
+                            <i class="fas fa-play me-2"></i>Generate Interview Questions
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Main Interview Area -->
+        <div class="interview-content" id="interviewContent" style="display: none;">
+            <!-- Avatar & Question Section -->
+            <div class="avatar-section">
+                <div class="avatar-container">
+                    <video id="avatarPlayer" autoplay muted playsinline class="avatar-video"
+                        poster="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDQwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjRjhGOUZBIi8+CjxjaXJjbGUgY3g9IjIwMCIgY3k9IjEyMCIgcj0iNDAiIGZpbGw9IiNFOUVDRUYiLz4KPHJlY3QgeD0iMTcwIiB5PSIxODAiIHdpZHRoPSI2MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0U5RUNFRiIvPgo8dGV4dCB4PSIyMDAiIHk9IjI1MCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzZDNzU3RCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0Ij5BdmF0YXIgTG9hZGluZy4uLjwvdGV4dD4KPHN2Zz4=">
+                        Your browser does not support video playback.
+                    </video>
+
+                    <!-- Loading Overlay -->
+                    <div class="loading-overlay" id="loadingOverlay">
+                        <div class="spinner"></div>
+                        <p>Preparing your interview...</p>
+                    </div>
+                </div>
+
+                <!-- Question Display -->
+                <div class="question-section">
+                    <div class="question-label">Current Question:</div>
+                    <div class="question-text" id="currentQuestion">
+                        Welcome! Let's begin your interview. I'll ask you a few questions about your experience and
+                        skills.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Response Section -->
+            <div class="response-section">
+                <!-- Video Preview Section -->
+                <div class="video-preview-section">
+                    <div class="video-preview-header">
+                        <span class="video-preview-label">
+                            <i class="fas fa-video me-2"></i>Video Preview
+                        </span>
+                        <div class="recording-indicator" id="recordingIndicator" style="display: none;">
+                            <span class="recording-dot"></span>
+                            Recording
+                        </div>
+                    </div>
+                    <div class="video-preview-container">
+                        <video id="userVideo" autoplay muted playsinline class="user-video-preview"></video>
+                        <div class="video-overlay" id="videoOverlay">
+                            <i class="fas fa-camera"></i>
+                            <p>Camera access required for posture analysis</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hidden canvas for posture analysis -->
+                <canvas id="postureCanvas" style="display: none;"></canvas>
+
+                <!-- Microphone Button -->
+                <div class="mic-section">
+                    <button id="micButton" class="mic-button" disabled>
+                        <i class="fas fa-microphone"></i>
+                    </button>
+                    <div class="mic-status" id="micStatus">Wait for the question to finish</div>
+                </div>
+
+                <!-- Transcript Display -->
+                <div class="transcript-section">
+                    <div class="transcript-label">Your Response:</div>
+                    <div class="transcript-container">
+                        <div class="transcript-text" id="transcriptText">
+                            Your spoken response will appear here...
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Fixed Next Button -->
+                <div class="next-section-fixed">
+                    <button id="nextButton" class="next-button" style="display: none;">
+                        <i class="fas fa-arrow-right me-2"></i>Next Question
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Completion Screen -->
+        <div class="completion-screen" id="completionScreen" style="display: none;">
+            <div class="completion-content">
+                <div class="completion-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2>Interview Complete!</h2>
+                <p>Thank you for completing the avatar interview. Here's your detailed performance analysis:</p>
+
+                <!-- Overall Score -->
+                <div class="overall-score-section" id="overallScoreSection" style="display: none;">
+                    <div class="score-circle">
+                        <div class="score-number" id="overallScore">8.5</div>
+                        <div class="score-label">Overall Score</div>
+                    </div>
+                </div>
+
+                <!-- Detailed Feedback -->
+                <div class="detailed-feedback-section" id="detailedFeedbackSection" style="display: none;">
+                    <h3><i class="fas fa-chart-line me-2"></i>Performance Breakdown</h3>
+
+                    <!-- Content Analysis -->
+                    <div class="feedback-category">
+                        <div class="category-header">
+                            <h4><i class="fas fa-brain me-2"></i>Content Quality</h4>
+                            <div class="category-score" id="contentScore">7.5/10</div>
+                        </div>
+                        <div class="category-feedback" id="contentFeedback">
+                            Your answers demonstrated good technical knowledge with relevant examples.
+                        </div>
+                        <div class="category-suggestions" id="contentSuggestions">
+                            • Provide more specific metrics and outcomes
+                            • Include more real-world examples
+                        </div>
+                    </div>
+
+                    <!-- Communication Analysis -->
+                    <div class="feedback-category">
+                        <div class="category-header">
+                            <h4><i class="fas fa-comments me-2"></i>Communication</h4>
+                            <div class="category-score" id="communicationScore">8.0/10</div>
+                        </div>
+                        <div class="category-feedback" id="communicationFeedback">
+                            Clear and articulate responses with good structure.
+                        </div>
+                        <div class="category-suggestions" id="communicationSuggestions">
+                            • Reduce filler words
+                            • Maintain consistent pace
+                        </div>
+                    </div>
+
+                    <!-- Posture Analysis -->
+                    <div class="feedback-category">
+                        <div class="category-header">
+                            <h4><i class="fas fa-user-check me-2"></i>Body Language</h4>
+                            <div class="category-score" id="postureScore">7.8/10</div>
+                        </div>
+                        <div class="category-feedback" id="postureFeedback">
+                            Good posture maintained throughout most of the interview.
+                        </div>
+                        <div class="category-suggestions" id="postureSuggestions">
+                            • Keep shoulders back consistently
+                            • Maintain eye contact with camera
+                        </div>
+                    </div>
+
+                    <!-- Speaking Pace -->
+                    <div class="feedback-category">
+                        <div class="category-header">
+                            <h4><i class="fas fa-tachometer-alt me-2"></i>Speaking Pace</h4>
+                            <div class="category-score" id="pacingScore">8.5/10</div>
+                        </div>
+                        <div class="category-feedback" id="pacingFeedback">
+                            Excellent speaking pace that was easy to follow.
+                        </div>
+                        <div class="category-suggestions" id="pacingSuggestions">
+                            • Continue maintaining this pace
+                            • Use strategic pauses for emphasis
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Strengths and Improvements -->
+                <div class="summary-section" id="summarySection" style="display: none;">
+                    <div class="strengths-section">
+                        <h4><i class="fas fa-star me-2"></i>Key Strengths</h4>
+                        <ul id="strengthsList">
+                            <li>Clear communication skills</li>
+                            <li>Relevant technical examples</li>
+                            <li>Professional demeanor</li>
+                        </ul>
+                    </div>
+
+                    <div class="improvements-section">
+                        <h4><i class="fas fa-arrow-up me-2"></i>Areas for Improvement</h4>
+                        <ul id="improvementsList">
+                            <li>Provide more quantitative results</li>
+                            <li>Include more diverse examples</li>
+                            <li>Work on consistent posture</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="completion-actions">
+                    <button id="submitButton" class="submit-button">
+                        <i class="fas fa-save me-2"></i>Save Interview
+                    </button>
+                    <button id="viewHistoryButton" class="view-history-button">
+                        <i class="fas fa-history me-2"></i>View History
+                    </button>
+                    <button id="restartButton" class="restart-button">
+                        <i class="fas fa-redo me-2"></i>Start New Interview
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Toast Notification -->
+<div id="toast" class="toast">
+    <div class="toast-content">
+        <i class="toast-icon fas fa-info-circle"></i>
+        <span class="toast-message">Message</span>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/avatar_interview.js') }}"></script>
+{% endblock %}

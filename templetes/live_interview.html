@@ -1,0 +1,450 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h3 class="mb-0">Live Interview Session</h3>
+                </div>
+                <div class="card-body">
+                    <!-- Progress Indicator -->
+                    <div class="progress mb-4">
+                        <div id="interview-progress" class="progress-bar" role="progressbar" style="width: 0%;"
+                            aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                    </div>
+
+                    <!-- Status Display -->
+                    <div class="alert alert-info" id="status-display" role="alert">
+                        Welcome to your live interview session. Click Start Interview to begin.
+                    </div>
+
+                    <!-- Interview Controls -->
+                    <div class="d-flex justify-content-center mb-4">
+                        <button id="startButton" class="btn btn-primary me-2">Start Interview</button>
+                        <button id="recordButton" class="btn btn-danger me-2" disabled>Start Recording</button>
+                        <button id="stopButton" class="btn btn-secondary" disabled>Stop Recording</button>
+                    </div>
+
+                    <!-- Current Question Display -->
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h5 class="mb-0">Current Question</h5>
+                        </div>
+                        <div class="card-body">
+                            <p id="currentQuestion" class="lead">Questions will appear here...</p>
+                        </div>
+                    </div>
+
+                    <!-- Real-time Transcription Display -->
+                    <div class="card mb-4" id="transcriptionCard" style="display: none;">
+                        <div class="card-header">
+                            <h5 class="mb-0">Your Answer (Real-time)</h5>
+                        </div>
+                        <div class="card-body">
+                            <p id="realTimeTranscription" class="text-muted">Your speech will appear here...</p>
+                        </div>
+                    </div>
+
+                    <!-- Interview Summary -->
+                    <div id="interviewSummary" class="d-none">
+                        <h4 class="mb-3">Interview Summary</h4>
+                        <div class="list-group" id="summaryList">
+                            <!-- Summary items will be added here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Configuration and State
+    const config = {
+        totalQuestions: 2,
+        currentQuestion: 0,
+        questions: [],
+        answers: [],
+        evaluations: [],
+        isRecording: false,
+        speechSynthesis: window.speechSynthesis,
+        recognition: null,
+        currentTranscript: ''
+    };
+
+    // DOM Elements
+    const startButton = document.getElementById('startButton');
+    const recordButton = document.getElementById('recordButton');
+    const stopButton = document.getElementById('stopButton');
+    const statusDisplay = document.getElementById('status-display');
+    const progressBar = document.getElementById('interview-progress');
+    const currentQuestionDisplay = document.getElementById('currentQuestion');
+    const interviewSummary = document.getElementById('interviewSummary');
+    const summaryList = document.getElementById('summaryList');
+    const transcriptionCard = document.getElementById('transcriptionCard');
+    const realTimeTranscription = document.getElementById('realTimeTranscription');
+
+    // Check browser support
+    if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+        updateStatus('Speech recognition not supported in this browser. Please use Chrome or Edge.');
+    } else {
+        // Initialize speech recognition
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+        config.recognition = new SpeechRecognition();
+        config.recognition.continuous = true;
+        config.recognition.interimResults = true;
+        config.recognition.lang = 'en-US';
+
+        // Set up recognition event handlers
+        config.recognition.onstart = function () {
+            console.log('Speech recognition started');
+            updateStatus('Listening... Please speak your answer.');
+        };
+
+        config.recognition.onresult = function (event) {
+            let interimTranscript = '';
+            let finalTranscript = '';
+
+            for (let i = event.resultIndex; i < event.results.length; ++i) {
+                const transcript = event.results[i][0].transcript;
+                if (event.results[i].isFinal) {
+                    finalTranscript += transcript;
+                } else {
+                    interimTranscript += transcript;
+                }
+            }
+
+            // Update real-time display
+            realTimeTranscription.textContent = finalTranscript + interimTranscript;
+            config.currentTranscript = finalTranscript;
+        };
+
+        config.recognition.onerror = function (event) {
+            console.error('Speech recognition error:', event.error);
+            updateStatus('Speech recognition error: ' + event.error);
+        };
+
+        config.recognition.onend = function () {
+            console.log('Speech recognition ended');
+            if (config.isRecording) {
+                // If we were still supposed to be recording, restart
+                config.recognition.start();
+            }
+        };
+    }
+
+    // Event Listeners
+    startButton.addEventListener('click', startInterview);
+    recordButton.addEventListener('click', startRecording);
+    stopButton.addEventListener('click', stopRecording);
+
+    // Main interview flow
+    async function startInterview() {
+        try {
+            startButton.disabled = true;
+            updateStatus('Starting interview session...');
+
+            // Reset state if needed
+            config.currentQuestion = 0;
+            config.questions = [];
+            config.answers = [];
+
+            await proceedToNextQuestion();
+        } catch (error) {
+            console.error('Error starting interview:', error);
+            updateStatus('Error starting interview. Please try again.');
+            startButton.disabled = false;
+        }
+    }
+
+    async function proceedToNextQuestion() {
+        try {
+            if (config.currentQuestion >= config.totalQuestions) {
+                await evaluateAllAnswers();
+                showSummary();
+                return;
+            }
+
+            config.currentQuestion++;
+            updateProgress();
+
+            // Generate question using Gemini API
+            const question = await generateQuestion();
+            config.questions.push(question);
+            currentQuestionDisplay.textContent = question;
+
+            // Convert question to speech using Web Speech API
+            await speakQuestion(question);
+
+            // Enable recording after speech ends
+            recordButton.disabled = false;
+            updateStatus('Please click "Start Recording" to answer the question.');
+        } catch (error) {
+            console.error('Error proceeding to next question:', error);
+            updateStatus('Error loading question. Please try again.');
+        }
+    }
+
+    // API Interaction Functions
+    async function generateQuestion() {
+        try {
+            const response = await fetch('/generate_interview_question', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    questionNumber: config.currentQuestion,
+                    totalQuestions: config.totalQuestions
+                })
+            });
+
+            const data = await response.json();
+            return data.question;
+        } catch (error) {
+            console.error('Error generating question:', error);
+            return `Sample question ${config.currentQuestion}: Tell me about your experience with problem-solving.`;
+        }
+    }
+
+    // Web Speech API for text-to-speech
+    function speakQuestion(text) {
+        return new Promise((resolve, reject) => {
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.rate = 0.8; // Slower rate for clarity
+            utterance.pitch = 1;
+            utterance.volume = 1;
+
+            utterance.onend = () => {
+                resolve();
+            };
+
+            utterance.onerror = (error) => {
+                console.error('Speech synthesis error:', error);
+                resolve(); // Continue even if speech fails
+            };
+
+            config.speechSynthesis.speak(utterance);
+        });
+    }
+
+    // Recording Functions using Speech Recognition
+    function startRecording() {
+        if (!config.recognition) {
+            updateStatus('Speech recognition not available. Please use a supported browser.');
+            return;
+        }
+
+        try {
+            config.isRecording = true;
+            config.currentTranscript = '';
+
+            // Show transcription card
+            transcriptionCard.style.display = 'block';
+            realTimeTranscription.textContent = 'Listening...';
+
+            // Start speech recognition
+            config.recognition.start();
+
+            // Update UI
+            recordButton.disabled = true;
+            stopButton.disabled = false;
+            updateStatus('Recording... Speak your answer clearly.');
+
+        } catch (error) {
+            console.error('Error starting recording:', error);
+            updateStatus('Error starting speech recognition: ' + error.message);
+        }
+    }
+
+    function stopRecording() {
+        if (config.recognition && config.isRecording) {
+            config.isRecording = false;
+            config.recognition.stop();
+
+            // Hide transcription card
+            transcriptionCard.style.display = 'none';
+
+            // Save the answer
+            const finalAnswer = config.currentTranscript.trim();
+            if (finalAnswer) {
+                config.answers.push(finalAnswer);
+                updateStatus('Answer recorded. Moving to next question...');
+
+                // Proceed to next question after a short delay
+                setTimeout(() => {
+                    proceedToNextQuestion();
+                }, 1000);
+            } else {
+                updateStatus('No speech detected. Please try again.');
+                recordButton.disabled = false;
+            }
+
+            stopButton.disabled = true;
+        }
+    }
+
+    // Helper Functions
+    function updateProgress() {
+        const progress = (config.currentQuestion / config.totalQuestions) * 100;
+        progressBar.style.width = `${progress}%`;
+        progressBar.setAttribute('aria-valuenow', progress);
+        progressBar.textContent = `${Math.round(progress)}%`;
+    }
+
+    function updateStatus(message) {
+        statusDisplay.textContent = message;
+    }
+
+    // New function to evaluate all answers
+    async function evaluateAllAnswers() {
+        try {
+            updateStatus('Evaluating your answers...');
+
+            for (let i = 0; i < config.questions.length; i++) {
+                const question = config.questions[i];
+                const answer = config.answers[i] || 'No answer provided';
+
+                const evaluation = await evaluateAnswer(question, answer);
+                config.evaluations.push(evaluation);
+            }
+
+            updateStatus('Evaluation complete! Showing your results...');
+        } catch (error) {
+            console.error('Error evaluating answers:', error);
+            updateStatus('Error evaluating answers. Showing results without evaluation.');
+
+            // Fill with default evaluations if API fails
+            for (let i = 0; i < config.questions.length; i++) {
+                config.evaluations.push({
+                    score: 'N/A',
+                    feedback: 'Evaluation not available',
+                    suggestions: ['Answer evaluation failed']
+                });
+            }
+        }
+    }
+
+    // Function to evaluate individual answer
+    async function evaluateAnswer(question, answer) {
+        try {
+            const response = await fetch('/evaluate_answer', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    question: question,
+                    answer: answer
+                })
+            });
+
+            if (!response.ok) {
+                throw new Error('Evaluation failed');
+            }
+
+            const data = await response.json();
+            return data.evaluation;
+        } catch (error) {
+            console.error('Error evaluating answer:', error);
+            return {
+                score: 'N/A',
+                feedback: 'Could not evaluate this answer',
+                suggestions: ['Please try again later for evaluation']
+            };
+        }
+    }
+
+    function showSummary() {
+        // Clear current question display
+        currentQuestionDisplay.textContent = 'Interview Complete!';
+
+        // Show summary section
+        interviewSummary.classList.remove('d-none');
+
+        // Create summary items with evaluations
+        summaryList.innerHTML = '';
+        config.questions.forEach((question, index) => {
+            const answer = config.answers[index] || 'No answer recorded';
+            const evaluation = config.evaluations[index] || {
+                score: 'N/A',
+                feedback: 'No evaluation available',
+                suggestions: []
+            };
+
+            const summaryItem = document.createElement('div');
+            summaryItem.className = 'list-group-item';
+
+            // Determine score color
+            let scoreClass = 'text-muted';
+            if (evaluation.score !== 'N/A') {
+                const score = parseInt(evaluation.score);
+                if (score >= 8) scoreClass = 'text-success';
+                else if (score >= 6) scoreClass = 'text-warning';
+                else scoreClass = 'text-danger';
+            }
+
+            summaryItem.innerHTML = `
+            <div class="d-flex justify-content-between align-items-start mb-2">
+                <h5 class="mb-1">Question ${index + 1}:</h5>
+                <span class="badge bg-primary">${evaluation.score}/10</span>
+            </div>
+            <p class="mb-2 text-primary">${question}</p>
+            
+            <h6 class="mt-3 mb-1">Your Answer:</h6>
+            <p class="mb-2 text-muted border-start border-3 ps-3">${answer}</p>
+            
+            <h6 class="mt-3 mb-1">Evaluation:</h6>
+            <p class="mb-2 ${scoreClass}">${evaluation.feedback}</p>
+            
+            ${evaluation.suggestions && evaluation.suggestions.length > 0 ? `
+                <h6 class="mt-3 mb-1">Improvement Suggestions:</h6>
+                <ul class="mb-0">
+                    ${evaluation.suggestions.map(suggestion => `<li>${suggestion}</li>`).join('')}
+                </ul>
+            ` : ''}
+        `;
+            summaryList.appendChild(summaryItem);
+        });
+
+        // Calculate overall score
+        const validScores = config.evaluations
+            .map(e => parseInt(e.score))
+            .filter(score => !isNaN(score));
+
+        if (validScores.length > 0) {
+            const averageScore = validScores.reduce((a, b) => a + b, 0) / validScores.length;
+            const overallCard = document.createElement('div');
+            overallCard.className = 'card mt-4 bg-light';
+            overallCard.innerHTML = `
+            <div class="card-body text-center">
+                <h4 class="card-title">Overall Performance</h4>
+                <h2 class="display-4 ${averageScore >= 8 ? 'text-success' : averageScore >= 6 ? 'text-warning' : 'text-danger'}">${averageScore.toFixed(1)}/10</h2>
+                <p class="card-text">${getPerformanceMessage(averageScore)}</p>
+            </div>
+        `;
+            summaryList.appendChild(overallCard);
+        }
+
+        // Update status
+        updateStatus('Interview complete! Review your performance above.');
+
+        // Reset buttons
+        startButton.disabled = false;
+        recordButton.disabled = true;
+        stopButton.disabled = true;
+    }
+
+    // Helper function to get performance message
+    function getPerformanceMessage(score) {
+        if (score >= 9) return "Excellent performance! You demonstrated strong knowledge and communication skills.";
+        if (score >= 8) return "Great job! You showed good understanding with room for minor improvements.";
+        if (score >= 7) return "Good performance! You have solid foundations with some areas to develop.";
+        if (score >= 6) return "Decent performance! Focus on the suggested improvements for better results.";
+        if (score >= 5) return "Average performance. Review the feedback and practice more for better results.";
+        return "There's room for improvement. Study the suggestions and practice regularly.";
+    }
+</script>
+{% endblock %}

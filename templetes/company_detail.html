@@ -1,0 +1,196 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<!-- Company Header -->
+<section class="company-header" style="background: {{ company.gradient }}">
+    <div class="container py-5">
+        <div class="row align-items-center">
+            <div class="col-lg-4 text-center">
+                <img src="{{ url_for('static', filename='images/companies/' + company.logo) }}" 
+                     alt="{{ company.name }} Logo" 
+                     class="img-fluid mb-4"
+                     style="max-height: 120px; filter: brightness(0) invert(1);">
+            </div>
+            <div class="col-lg-8">
+                <h1 class="display-4 text-white mb-4">{{ company.name }} Interview Preparation</h1>
+                <p class="lead text-white">Comprehensive resources and guides to help you prepare for your {{ company.name }} interview</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Main Content -->
+<section class="company-content py-5">
+    <div class="container">
+        <div class="row">
+            <!-- FAQs Section -->
+            <div class="col-lg-6 mb-5">
+                <h2 class="mb-4">Frequently Asked Questions</h2>
+                <div class="accordion" id="faqAccordion">
+                    {% for faq in company.faqs %}
+                    <div class="accordion-item mb-3">
+                        <h3 class="accordion-header" id="faqHeading{{ loop.index }}">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" 
+                                    data-bs-target="#faqCollapse{{ loop.index }}" aria-expanded="false" 
+                                    aria-controls="faqCollapse{{ loop.index }}">
+                                {{ faq.question }}
+                            </button>
+                        </h3>
+                        <div id="faqCollapse{{ loop.index }}" class="accordion-collapse collapse" 
+                             aria-labelledby="faqHeading{{ loop.index }}" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                {{ faq.answer }}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Resources Section -->
+            <div class="col-lg-6 mb-5">
+                <h2 class="mb-4">Preparation Resources</h2>
+                <div class="resources-grid">
+                    {% for resource in company.resources %}
+                    <div class="resource-card">
+                        <div class="resource-icon">
+                            <i class="fas fa-file-pdf"></i>
+                        </div>
+                        <div class="resource-content">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <h4>{{ resource.name }}</h4>
+                                <button class="btn btn-sm btn-outline-primary resource-toggle-btn" data-bs-toggle="collapse" 
+                                        data-bs-target="#resourceDetails{{ loop.index }}">
+                                    <i class="fas fa-info-circle"></i>
+                                </button>
+                            </div>
+                            <div id="resourceDetails{{ loop.index }}" class="collapse mt-2">
+                                <p class="mb-2 text-muted">This resource contains essential information about {{ resource.name }} 
+                                for your {{ company.name }} interview preparation.</p>
+                            </div>
+                            <a href="{{ url_for('download_file', filename=resource.file) }}" 
+                               class="btn btn-primary"
+                               download>
+                                Download
+                            </a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* Company Header */
+.company-header {
+    position: relative;
+    overflow: hidden;
+}
+
+.company-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: url("{{ url_for('static', filename='images/pattern.svg') }}") repeat;
+    opacity: 0.1;
+}
+
+/* Accordion Styling */
+.accordion-item {
+    border: none;
+    margin-bottom: 1rem;
+    border-radius: 10px !important;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.accordion-button {
+    background: white;
+    color: #333;
+    font-weight: 500;
+    padding: 1rem 1.5rem;
+}
+
+.accordion-button:not(.collapsed) {
+    background: {{ company.color }};
+    color: white;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+    border-color: rgba(0, 0, 0, 0.125);
+}
+
+.accordion-body {
+    padding: 1rem 1.5rem;
+    background: white;
+}
+
+/* Resource Cards */
+.resources-grid {
+    display: grid;
+    gap: 1rem;
+}
+
+.resource-card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.resource-card:hover {
+    transform: translateY(-5px);
+}
+
+.resource-icon {
+    width: 50px;
+    height: 50px;
+    background: {{ company.color }};
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.resource-content {
+    flex: 1;
+}
+
+.resource-content h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #333;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .company-header {
+        text-align: center;
+    }
+    
+    .company-header img {
+        margin-bottom: 2rem;
+    }
+    
+    .resource-card {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+</style>
+
+<!-- Add required CSS and JS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+{% endblock %} 
