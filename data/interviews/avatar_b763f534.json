@@ -1,0 +1,2004 @@
+{
+  "created": "2025-09-04T06:58:03.395451",
+  "type": "avatar_interview",
+  "user_id": 2,
+  "answers": [
+    {
+      "question": "Tell me about yourself and your professional background.",
+      "answer": "and the same Java language",
+      "timestamp": "2025-09-04T06:56:01.029Z",
+      "video_duration": 23.043,
+      "posture_analysis": {
+        "average_score": 7.567753756089977,
+        "confidence": 0.8000000000000002,
+        "total_samples": 21,
+        "detailed_analysis": [
+          {
+            "timestamp": 1005,
+            "score": 7.269125273311028,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "slouching"
+            }
+          },
+          {
+            "timestamp": 2006,
+            "score": 8.814094856742749,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "straight"
+            }
+          },
+          {
+            "timestamp": 3001,
+            "score": 8.612905476146695,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "straight"
+            }
+          },
+          {
+            "timestamp": 4001,
+            "score": 6.718975809719131,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "needs_improvement",
+              "head_position": "upright",
+              "back_posture": "slouching"
+            }
+          },
+          {
+            "timestamp": 5006,
+            "score": 8.029839029452843,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "straight"
+            }
+          },
+          {
+            "timestamp": 6001,
+            "score": 7.596829209737505,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "straight"
+            }
+          },
+          {
+            "timestamp": 7001,
+            "score": 7.384747740868475,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "slouching"
+            }
+          },
+          {
+            "timestamp": 8005,
+            "score": 8.10203980265258,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "straight"
+            }
+          },
+          {
+            "timestamp": 9001,
+            "score": 6.705921998180187,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "needs_improvement",
+              "head_position": "upright",
+              "back_posture": "slouching"
+            }
+          },
+          {
+            "timestamp": 10006,
+            "score": 7.714578550089334,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "straight"
+            }
+          },
+          {
+            "timestamp": 11006,
+            "score": 6.307681812255462,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "needs_improvement",
+              "head_position": "tilted",
+              "back_posture": "slouching"
+            }
+          },
+          {
+            "timestamp": 12005,
+            "score": 7.130602922927718,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "slouching"
+            }
+          },
+          {
+            "timestamp": 13001,
+            "score": 8.338256385741987,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "straight"
+            }
+          },
+          {
+            "timestamp": 14001,
+            "score": 7.338564575325978,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "slouching"
+            }
+          },
+          {
+            "timestamp": 15006,
+            "score": 8.644639609489602,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "straight"
+            }
+          },
+          {
+            "timestamp": 16001,
+            "score": 7.141907912068598,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "slouching"
+            }
+          },
+          {
+            "timestamp": 17001,
+            "score": 6.045147482805879,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "needs_improvement",
+              "head_position": "tilted",
+              "back_posture": "slouching"
+            }
+          },
+          {
+            "timestamp": 18002,
+            "score": 8.364985467019142,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "straight"
+            }
+          },
+          {
+            "timestamp": 19002,
+            "score": 6.929476447316909,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "needs_improvement",
+              "head_position": "upright",
+              "back_posture": "slouching"
+            }
+          },
+          {
+            "timestamp": 20001,
+            "score": 8.490039583611896,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "straight"
+            }
+          },
+          {
+            "timestamp": 21001,
+            "score": 7.242468932425821,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "slouching"
+            }
+          }
+        ]
+      },
+      "detailed_evaluation": {
+        "detailed_feedback": "Content: Good response with 5 words. Consider adding more specific examples. | Posture: Good posture with minor adjustments needed | Presentation: Speaking pace is a bit slow. Response is quite brief",
+        "improvement_tips": [
+          "Add more examples",
+          "Show more enthusiasm",
+          "Try to keep shoulders back and head upright",
+          "Try to speak a bit faster to maintain engagement",
+          "Provide more detailed answers"
+        ],
+        "overall_score": 5.5,
+        "posture_analysis": {
+          "confidence": 0.8000000000000002,
+          "details": {
+            "average_score": 7.567753756089977,
+            "confidence": 0.8000000000000002,
+            "detailed_analysis": [
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "slouching",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 7.269125273311028,
+                "timestamp": 1005
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "straight",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 8.814094856742749,
+                "timestamp": 2006
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "straight",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 8.612905476146695,
+                "timestamp": 3001
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "slouching",
+                  "head_position": "upright",
+                  "shoulder_alignment": "needs_improvement"
+                },
+                "score": 6.718975809719131,
+                "timestamp": 4001
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "straight",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 8.029839029452843,
+                "timestamp": 5006
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "straight",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 7.596829209737505,
+                "timestamp": 6001
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "slouching",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 7.384747740868475,
+                "timestamp": 7001
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "straight",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 8.10203980265258,
+                "timestamp": 8005
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "slouching",
+                  "head_position": "upright",
+                  "shoulder_alignment": "needs_improvement"
+                },
+                "score": 6.705921998180187,
+                "timestamp": 9001
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "straight",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 7.714578550089334,
+                "timestamp": 10006
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "slouching",
+                  "head_position": "tilted",
+                  "shoulder_alignment": "needs_improvement"
+                },
+                "score": 6.307681812255462,
+                "timestamp": 11006
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "slouching",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 7.130602922927718,
+                "timestamp": 12005
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "straight",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 8.338256385741987,
+                "timestamp": 13001
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "slouching",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 7.338564575325978,
+                "timestamp": 14001
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "straight",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 8.644639609489602,
+                "timestamp": 15006
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "slouching",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 7.141907912068598,
+                "timestamp": 16001
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "slouching",
+                  "head_position": "tilted",
+                  "shoulder_alignment": "needs_improvement"
+                },
+                "score": 6.045147482805879,
+                "timestamp": 17001
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "straight",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 8.364985467019142,
+                "timestamp": 18002
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "slouching",
+                  "head_position": "upright",
+                  "shoulder_alignment": "needs_improvement"
+                },
+                "score": 6.929476447316909,
+                "timestamp": 19002
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "straight",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 8.490039583611896,
+                "timestamp": 20001
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "slouching",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 7.242468932425821,
+                "timestamp": 21001
+              }
+            ],
+            "total_samples": 21
+          },
+          "feedback": "Good posture with minor adjustments needed",
+          "score": 7,
+          "suggestions": [
+            "Try to keep shoulders back and head upright"
+          ]
+        },
+        "transcript_analysis": {
+          "areas_for_improvement": [
+            "Add more examples",
+            "Show more enthusiasm"
+          ],
+          "communication": {
+            "feedback": "Clear communication",
+            "score": 7,
+            "suggestions": "Minimize filler words"
+          },
+          "completeness": {
+            "feedback": "Addresses the question",
+            "score": 6,
+            "suggestions": "Provide more comprehensive coverage"
+          },
+          "content_quality": {
+            "feedback": "Answer length: 5 words",
+            "score": 3,
+            "suggestions": "Provide more specific examples and details"
+          },
+          "engagement": {
+            "feedback": "Shows interest",
+            "score": 6,
+            "suggestions": "Express more enthusiasm and passion"
+          },
+          "overall_feedback": "Good response with 5 words. Consider adding more specific examples.",
+          "overall_score": 5,
+          "strengths": [
+            "Clear communication",
+            "Relevant content"
+          ]
+        },
+        "video_analysis": {
+          "duration": 23.043,
+          "feedback": "Speaking pace is a bit slow. Response is quite brief",
+          "score": 5,
+          "speaking_rate": 13.019138133055591,
+          "suggestions": [
+            "Try to speak a bit faster to maintain engagement",
+            "Provide more detailed answers"
+          ],
+          "word_count": 5
+        }
+      },
+      "video_blob_size": 2107474
+    },
+    {
+      "question": "What interests you most about this role and our company?",
+      "answer": "thank you",
+      "timestamp": "2025-09-04T06:56:35.498Z",
+      "video_duration": 7.492,
+      "posture_analysis": {
+        "average_score": 7.619406415380318,
+        "confidence": 0.8,
+        "total_samples": 5,
+        "detailed_analysis": [
+          {
+            "timestamp": 1005,
+            "score": 7.793354739557188,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "straight"
+            }
+          },
+          {
+            "timestamp": 2003,
+            "score": 7.190909567181138,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "slouching"
+            }
+          },
+          {
+            "timestamp": 3004,
+            "score": 8.231486771701341,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "straight"
+            }
+          },
+          {
+            "timestamp": 4005,
+            "score": 8.20273067058933,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "straight"
+            }
+          },
+          {
+            "timestamp": 5001,
+            "score": 6.67855032787259,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "needs_improvement",
+              "head_position": "upright",
+              "back_posture": "slouching"
+            }
+          }
+        ]
+      },
+      "detailed_evaluation": {
+        "detailed_feedback": "Content: Good response with 2 words. Consider adding more specific examples. | Posture: Good posture with minor adjustments needed | Presentation: Speaking pace is a bit slow. Response is quite brief",
+        "improvement_tips": [
+          "Add more examples",
+          "Show more enthusiasm",
+          "Try to keep shoulders back and head upright",
+          "Try to speak a bit faster to maintain engagement",
+          "Provide more detailed answers"
+        ],
+        "overall_score": 5.5,
+        "posture_analysis": {
+          "confidence": 0.8,
+          "details": {
+            "average_score": 7.619406415380318,
+            "confidence": 0.8,
+            "detailed_analysis": [
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "straight",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 7.793354739557188,
+                "timestamp": 1005
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "slouching",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 7.190909567181138,
+                "timestamp": 2003
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "straight",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 8.231486771701341,
+                "timestamp": 3004
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "straight",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 8.20273067058933,
+                "timestamp": 4005
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "slouching",
+                  "head_position": "upright",
+                  "shoulder_alignment": "needs_improvement"
+                },
+                "score": 6.67855032787259,
+                "timestamp": 5001
+              }
+            ],
+            "total_samples": 5
+          },
+          "feedback": "Good posture with minor adjustments needed",
+          "score": 7,
+          "suggestions": [
+            "Try to keep shoulders back and head upright"
+          ]
+        },
+        "transcript_analysis": {
+          "areas_for_improvement": [
+            "Add more examples",
+            "Show more enthusiasm"
+          ],
+          "communication": {
+            "feedback": "Clear communication",
+            "score": 7,
+            "suggestions": "Minimize filler words"
+          },
+          "completeness": {
+            "feedback": "Addresses the question",
+            "score": 6,
+            "suggestions": "Provide more comprehensive coverage"
+          },
+          "content_quality": {
+            "feedback": "Answer length: 2 words",
+            "score": 3,
+            "suggestions": "Provide more specific examples and details"
+          },
+          "engagement": {
+            "feedback": "Shows interest",
+            "score": 6,
+            "suggestions": "Express more enthusiasm and passion"
+          },
+          "overall_feedback": "Good response with 2 words. Consider adding more specific examples.",
+          "overall_score": 5,
+          "strengths": [
+            "Clear communication",
+            "Relevant content"
+          ]
+        },
+        "video_analysis": {
+          "duration": 7.492,
+          "feedback": "Speaking pace is a bit slow. Response is quite brief",
+          "score": 5,
+          "speaking_rate": 16.01708489054992,
+          "suggestions": [
+            "Try to speak a bit faster to maintain engagement",
+            "Provide more detailed answers"
+          ],
+          "word_count": 2
+        }
+      },
+      "video_blob_size": 532398
+    },
+    {
+      "question": "Describe a challenging project you've worked on and how you overcame obstacles.",
+      "answer": "analyse the solar panels count the number of solar panels using AIMS the model we have used as yellow Bate",
+      "timestamp": "2025-09-04T06:57:00.379Z",
+      "video_duration": 21.028,
+      "posture_analysis": {
+        "average_score": 7.6837548972934195,
+        "confidence": 0.8000000000000003,
+        "total_samples": 19,
+        "detailed_analysis": [
+          {
+            "timestamp": 1004,
+            "score": 6.520641689874243,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "needs_improvement",
+              "head_position": "upright",
+              "back_posture": "slouching"
+            }
+          },
+          {
+            "timestamp": 2005,
+            "score": 8.287982167743698,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "straight"
+            }
+          },
+          {
+            "timestamp": 3005,
+            "score": 7.844611089053605,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "straight"
+            }
+          },
+          {
+            "timestamp": 4005,
+            "score": 6.806754864532516,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "needs_improvement",
+              "head_position": "upright",
+              "back_posture": "slouching"
+            }
+          },
+          {
+            "timestamp": 5005,
+            "score": 7.8119306310053656,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "straight"
+            }
+          },
+          {
+            "timestamp": 6005,
+            "score": 8.983058498381508,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "straight"
+            }
+          },
+          {
+            "timestamp": 7005,
+            "score": 6.367993169637273,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "needs_improvement",
+              "head_position": "tilted",
+              "back_posture": "slouching"
+            }
+          },
+          {
+            "timestamp": 8005,
+            "score": 7.4048933694639505,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "slouching"
+            }
+          },
+          {
+            "timestamp": 9005,
+            "score": 7.215432665123776,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "slouching"
+            }
+          },
+          {
+            "timestamp": 10005,
+            "score": 6.83160937014555,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "needs_improvement",
+              "head_position": "upright",
+              "back_posture": "slouching"
+            }
+          },
+          {
+            "timestamp": 11004,
+            "score": 8.902820291399244,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "straight"
+            }
+          },
+          {
+            "timestamp": 12005,
+            "score": 8.489447735031675,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "straight"
+            }
+          },
+          {
+            "timestamp": 13005,
+            "score": 8.67506639233613,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "straight"
+            }
+          },
+          {
+            "timestamp": 14005,
+            "score": 8.888312378421807,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "straight"
+            }
+          },
+          {
+            "timestamp": 15004,
+            "score": 6.482249819357733,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "needs_improvement",
+              "head_position": "tilted",
+              "back_posture": "slouching"
+            }
+          },
+          {
+            "timestamp": 16001,
+            "score": 7.115192592795509,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "slouching"
+            }
+          },
+          {
+            "timestamp": 17004,
+            "score": 7.5342700326201895,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "straight"
+            }
+          },
+          {
+            "timestamp": 18005,
+            "score": 8.957382249078629,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "straight"
+            }
+          },
+          {
+            "timestamp": 19005,
+            "score": 6.871694042572556,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "needs_improvement",
+              "head_position": "upright",
+              "back_posture": "slouching"
+            }
+          }
+        ]
+      },
+      "detailed_evaluation": {
+        "detailed_feedback": "Content: Good response with 20 words. Consider adding more specific examples. | Posture: Good posture with minor adjustments needed | Presentation: Speaking pace is a bit slow. Response is quite brief",
+        "improvement_tips": [
+          "Add more examples",
+          "Show more enthusiasm",
+          "Try to keep shoulders back and head upright",
+          "Try to speak a bit faster to maintain engagement",
+          "Provide more detailed answers"
+        ],
+        "overall_score": 5.5,
+        "posture_analysis": {
+          "confidence": 0.8000000000000003,
+          "details": {
+            "average_score": 7.6837548972934195,
+            "confidence": 0.8000000000000003,
+            "detailed_analysis": [
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "slouching",
+                  "head_position": "upright",
+                  "shoulder_alignment": "needs_improvement"
+                },
+                "score": 6.520641689874243,
+                "timestamp": 1004
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "straight",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 8.287982167743698,
+                "timestamp": 2005
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "straight",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 7.844611089053605,
+                "timestamp": 3005
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "slouching",
+                  "head_position": "upright",
+                  "shoulder_alignment": "needs_improvement"
+                },
+                "score": 6.806754864532516,
+                "timestamp": 4005
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "straight",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 7.8119306310053656,
+                "timestamp": 5005
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "straight",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 8.983058498381508,
+                "timestamp": 6005
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "slouching",
+                  "head_position": "tilted",
+                  "shoulder_alignment": "needs_improvement"
+                },
+                "score": 6.367993169637273,
+                "timestamp": 7005
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "slouching",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 7.4048933694639505,
+                "timestamp": 8005
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "slouching",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 7.215432665123776,
+                "timestamp": 9005
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "slouching",
+                  "head_position": "upright",
+                  "shoulder_alignment": "needs_improvement"
+                },
+                "score": 6.83160937014555,
+                "timestamp": 10005
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "straight",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 8.902820291399244,
+                "timestamp": 11004
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "straight",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 8.489447735031675,
+                "timestamp": 12005
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "straight",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 8.67506639233613,
+                "timestamp": 13005
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "straight",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 8.888312378421807,
+                "timestamp": 14005
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "slouching",
+                  "head_position": "tilted",
+                  "shoulder_alignment": "needs_improvement"
+                },
+                "score": 6.482249819357733,
+                "timestamp": 15004
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "slouching",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 7.115192592795509,
+                "timestamp": 16001
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "straight",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 7.5342700326201895,
+                "timestamp": 17004
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "straight",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 8.957382249078629,
+                "timestamp": 18005
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "slouching",
+                  "head_position": "upright",
+                  "shoulder_alignment": "needs_improvement"
+                },
+                "score": 6.871694042572556,
+                "timestamp": 19005
+              }
+            ],
+            "total_samples": 19
+          },
+          "feedback": "Good posture with minor adjustments needed",
+          "score": 7,
+          "suggestions": [
+            "Try to keep shoulders back and head upright"
+          ]
+        },
+        "transcript_analysis": {
+          "areas_for_improvement": [
+            "Add more examples",
+            "Show more enthusiasm"
+          ],
+          "communication": {
+            "feedback": "Clear communication",
+            "score": 6,
+            "suggestions": "Minimize filler words"
+          },
+          "completeness": {
+            "feedback": "Addresses the question",
+            "score": 6,
+            "suggestions": "Provide more comprehensive coverage"
+          },
+          "content_quality": {
+            "feedback": "Answer length: 20 words",
+            "score": 3,
+            "suggestions": "Provide more specific examples and details"
+          },
+          "engagement": {
+            "feedback": "Shows interest",
+            "score": 6,
+            "suggestions": "Express more enthusiasm and passion"
+          },
+          "overall_feedback": "Good response with 20 words. Consider adding more specific examples.",
+          "overall_score": 5,
+          "strengths": [
+            "Clear communication",
+            "Relevant content"
+          ]
+        },
+        "video_analysis": {
+          "duration": 21.028,
+          "feedback": "Speaking pace is a bit slow. Response is quite brief",
+          "score": 5,
+          "speaking_rate": 57.06676811869888,
+          "suggestions": [
+            "Try to speak a bit faster to maintain engagement",
+            "Provide more detailed answers"
+          ],
+          "word_count": 20
+        }
+      },
+      "video_blob_size": 1870422
+    },
+    {
+      "question": "What are your greatest strengths and how do they apply to this position?",
+      "answer": "migrative strength is in speaking and also giving my ideas on the paper so in this company I would help to code my ideas that have in my brain to the actual on paper",
+      "timestamp": "2025-09-04T06:57:35.140Z",
+      "video_duration": 23.574,
+      "posture_analysis": {
+        "average_score": 7.442027460238712,
+        "confidence": 0.8000000000000002,
+        "total_samples": 21,
+        "detailed_analysis": [
+          {
+            "timestamp": 1004,
+            "score": 7.761076257289803,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "straight"
+            }
+          },
+          {
+            "timestamp": 2004,
+            "score": 6.693842018578277,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "needs_improvement",
+              "head_position": "upright",
+              "back_posture": "slouching"
+            }
+          },
+          {
+            "timestamp": 3001,
+            "score": 6.279683493106353,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "needs_improvement",
+              "head_position": "tilted",
+              "back_posture": "slouching"
+            }
+          },
+          {
+            "timestamp": 4004,
+            "score": 8.057207648725292,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "straight"
+            }
+          },
+          {
+            "timestamp": 5004,
+            "score": 7.142087405282377,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "slouching"
+            }
+          },
+          {
+            "timestamp": 6003,
+            "score": 6.9962495360203905,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "needs_improvement",
+              "head_position": "upright",
+              "back_posture": "slouching"
+            }
+          },
+          {
+            "timestamp": 7004,
+            "score": 8.956530969919353,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "straight"
+            }
+          },
+          {
+            "timestamp": 8004,
+            "score": 7.954933784353545,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "straight"
+            }
+          },
+          {
+            "timestamp": 9004,
+            "score": 6.320262285598867,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "needs_improvement",
+              "head_position": "tilted",
+              "back_posture": "slouching"
+            }
+          },
+          {
+            "timestamp": 10003,
+            "score": 7.026351898079345,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "slouching"
+            }
+          },
+          {
+            "timestamp": 11004,
+            "score": 7.778897114631873,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "straight"
+            }
+          },
+          {
+            "timestamp": 12003,
+            "score": 7.825721868653236,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "straight"
+            }
+          },
+          {
+            "timestamp": 13004,
+            "score": 6.050044378981462,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "needs_improvement",
+              "head_position": "tilted",
+              "back_posture": "slouching"
+            }
+          },
+          {
+            "timestamp": 14004,
+            "score": 6.718094592758843,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "needs_improvement",
+              "head_position": "upright",
+              "back_posture": "slouching"
+            }
+          },
+          {
+            "timestamp": 15003,
+            "score": 7.331833106431697,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "slouching"
+            }
+          },
+          {
+            "timestamp": 16004,
+            "score": 8.363749094308842,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "straight"
+            }
+          },
+          {
+            "timestamp": 17004,
+            "score": 7.620344709143334,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "straight"
+            }
+          },
+          {
+            "timestamp": 18003,
+            "score": 6.2432925727204935,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "needs_improvement",
+              "head_position": "tilted",
+              "back_posture": "slouching"
+            }
+          },
+          {
+            "timestamp": 19004,
+            "score": 8.319278010307908,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "straight"
+            }
+          },
+          {
+            "timestamp": 20004,
+            "score": 8.81352572316424,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "straight"
+            }
+          },
+          {
+            "timestamp": 21004,
+            "score": 8.029570196957401,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "straight"
+            }
+          }
+        ]
+      },
+      "detailed_evaluation": {
+        "detailed_feedback": "Content: Good response with 34 words. Consider adding more specific examples. | Posture: Good posture with minor adjustments needed | Presentation: Speaking pace is a bit slow. Response is quite brief",
+        "improvement_tips": [
+          "Add more examples",
+          "Show more enthusiasm",
+          "Try to keep shoulders back and head upright",
+          "Try to speak a bit faster to maintain engagement",
+          "Provide more detailed answers"
+        ],
+        "overall_score": 6.1,
+        "posture_analysis": {
+          "confidence": 0.8000000000000002,
+          "details": {
+            "average_score": 7.442027460238712,
+            "confidence": 0.8000000000000002,
+            "detailed_analysis": [
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "straight",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 7.761076257289803,
+                "timestamp": 1004
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "slouching",
+                  "head_position": "upright",
+                  "shoulder_alignment": "needs_improvement"
+                },
+                "score": 6.693842018578277,
+                "timestamp": 2004
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "slouching",
+                  "head_position": "tilted",
+                  "shoulder_alignment": "needs_improvement"
+                },
+                "score": 6.279683493106353,
+                "timestamp": 3001
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "straight",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 8.057207648725292,
+                "timestamp": 4004
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "slouching",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 7.142087405282377,
+                "timestamp": 5004
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "slouching",
+                  "head_position": "upright",
+                  "shoulder_alignment": "needs_improvement"
+                },
+                "score": 6.9962495360203905,
+                "timestamp": 6003
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "straight",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 8.956530969919353,
+                "timestamp": 7004
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "straight",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 7.954933784353545,
+                "timestamp": 8004
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "slouching",
+                  "head_position": "tilted",
+                  "shoulder_alignment": "needs_improvement"
+                },
+                "score": 6.320262285598867,
+                "timestamp": 9004
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "slouching",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 7.026351898079345,
+                "timestamp": 10003
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "straight",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 7.778897114631873,
+                "timestamp": 11004
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "straight",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 7.825721868653236,
+                "timestamp": 12003
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "slouching",
+                  "head_position": "tilted",
+                  "shoulder_alignment": "needs_improvement"
+                },
+                "score": 6.050044378981462,
+                "timestamp": 13004
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "slouching",
+                  "head_position": "upright",
+                  "shoulder_alignment": "needs_improvement"
+                },
+                "score": 6.718094592758843,
+                "timestamp": 14004
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "slouching",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 7.331833106431697,
+                "timestamp": 15003
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "straight",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 8.363749094308842,
+                "timestamp": 16004
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "straight",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 7.620344709143334,
+                "timestamp": 17004
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "slouching",
+                  "head_position": "tilted",
+                  "shoulder_alignment": "needs_improvement"
+                },
+                "score": 6.2432925727204935,
+                "timestamp": 18003
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "straight",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 8.319278010307908,
+                "timestamp": 19004
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "straight",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 8.81352572316424,
+                "timestamp": 20004
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "straight",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 8.029570196957401,
+                "timestamp": 21004
+              }
+            ],
+            "total_samples": 21
+          },
+          "feedback": "Good posture with minor adjustments needed",
+          "score": 7,
+          "suggestions": [
+            "Try to keep shoulders back and head upright"
+          ]
+        },
+        "transcript_analysis": {
+          "areas_for_improvement": [
+            "Add more examples",
+            "Show more enthusiasm"
+          ],
+          "communication": {
+            "feedback": "Clear communication",
+            "score": 7,
+            "suggestions": "Minimize filler words"
+          },
+          "completeness": {
+            "feedback": "Addresses the question",
+            "score": 8,
+            "suggestions": "Provide more comprehensive coverage"
+          },
+          "content_quality": {
+            "feedback": "Answer length: 34 words",
+            "score": 3,
+            "suggestions": "Provide more specific examples and details"
+          },
+          "engagement": {
+            "feedback": "Shows interest",
+            "score": 6,
+            "suggestions": "Express more enthusiasm and passion"
+          },
+          "overall_feedback": "Good response with 34 words. Consider adding more specific examples.",
+          "overall_score": 6,
+          "strengths": [
+            "Clear communication",
+            "Relevant content"
+          ]
+        },
+        "video_analysis": {
+          "duration": 23.574,
+          "feedback": "Speaking pace is a bit slow. Response is quite brief",
+          "score": 5,
+          "speaking_rate": 86.53601425299058,
+          "suggestions": [
+            "Try to speak a bit faster to maintain engagement",
+            "Provide more detailed answers"
+          ],
+          "word_count": 34
+        }
+      },
+      "video_blob_size": 2127504
+    },
+    {
+      "question": "Where do you see yourself in five years and how does this role fit into your career goals?",
+      "answer": "and",
+      "timestamp": "2025-09-04T06:58:00.654Z",
+      "video_duration": 15.658,
+      "posture_analysis": {
+        "average_score": 7.102359312976755,
+        "confidence": 0.8,
+        "total_samples": 13,
+        "detailed_analysis": [
+          {
+            "timestamp": 1005,
+            "score": 6.152142877502088,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "needs_improvement",
+              "head_position": "tilted",
+              "back_posture": "slouching"
+            }
+          },
+          {
+            "timestamp": 2005,
+            "score": 7.351515706565596,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "slouching"
+            }
+          },
+          {
+            "timestamp": 3005,
+            "score": 7.631026251948992,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "straight"
+            }
+          },
+          {
+            "timestamp": 4005,
+            "score": 8.021605014296462,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "straight"
+            }
+          },
+          {
+            "timestamp": 5005,
+            "score": 6.105936592423551,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "needs_improvement",
+              "head_position": "tilted",
+              "back_posture": "slouching"
+            }
+          },
+          {
+            "timestamp": 6005,
+            "score": 7.2089244462053665,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "slouching"
+            }
+          },
+          {
+            "timestamp": 7005,
+            "score": 6.281896398649897,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "needs_improvement",
+              "head_position": "tilted",
+              "back_posture": "slouching"
+            }
+          },
+          {
+            "timestamp": 8005,
+            "score": 8.234567554953063,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "straight"
+            }
+          },
+          {
+            "timestamp": 9005,
+            "score": 8.653204417951327,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "straight"
+            }
+          },
+          {
+            "timestamp": 10005,
+            "score": 6.0183718316376495,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "needs_improvement",
+              "head_position": "tilted",
+              "back_posture": "slouching"
+            }
+          },
+          {
+            "timestamp": 11005,
+            "score": 6.5371816654510795,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "needs_improvement",
+              "head_position": "upright",
+              "back_posture": "slouching"
+            }
+          },
+          {
+            "timestamp": 12005,
+            "score": 6.430463445817888,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "needs_improvement",
+              "head_position": "tilted",
+              "back_posture": "slouching"
+            }
+          },
+          {
+            "timestamp": 13005,
+            "score": 7.703834865294851,
+            "confidence": 0.8,
+            "details": {
+              "shoulder_alignment": "good",
+              "head_position": "upright",
+              "back_posture": "straight"
+            }
+          }
+        ]
+      },
+      "detailed_evaluation": {
+        "detailed_feedback": "Content: Good response with 1 words. Consider adding more specific examples. | Posture: Good posture with minor adjustments needed | Presentation: Speaking pace is a bit slow. Response is quite brief",
+        "improvement_tips": [
+          "Add more examples",
+          "Show more enthusiasm",
+          "Try to keep shoulders back and head upright",
+          "Try to speak a bit faster to maintain engagement",
+          "Provide more detailed answers"
+        ],
+        "overall_score": 5.5,
+        "posture_analysis": {
+          "confidence": 0.8,
+          "details": {
+            "average_score": 7.102359312976755,
+            "confidence": 0.8,
+            "detailed_analysis": [
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "slouching",
+                  "head_position": "tilted",
+                  "shoulder_alignment": "needs_improvement"
+                },
+                "score": 6.152142877502088,
+                "timestamp": 1005
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "slouching",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 7.351515706565596,
+                "timestamp": 2005
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "straight",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 7.631026251948992,
+                "timestamp": 3005
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "straight",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 8.021605014296462,
+                "timestamp": 4005
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "slouching",
+                  "head_position": "tilted",
+                  "shoulder_alignment": "needs_improvement"
+                },
+                "score": 6.105936592423551,
+                "timestamp": 5005
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "slouching",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 7.2089244462053665,
+                "timestamp": 6005
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "slouching",
+                  "head_position": "tilted",
+                  "shoulder_alignment": "needs_improvement"
+                },
+                "score": 6.281896398649897,
+                "timestamp": 7005
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "straight",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 8.234567554953063,
+                "timestamp": 8005
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "straight",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 8.653204417951327,
+                "timestamp": 9005
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "slouching",
+                  "head_position": "tilted",
+                  "shoulder_alignment": "needs_improvement"
+                },
+                "score": 6.0183718316376495,
+                "timestamp": 10005
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "slouching",
+                  "head_position": "upright",
+                  "shoulder_alignment": "needs_improvement"
+                },
+                "score": 6.5371816654510795,
+                "timestamp": 11005
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "slouching",
+                  "head_position": "tilted",
+                  "shoulder_alignment": "needs_improvement"
+                },
+                "score": 6.430463445817888,
+                "timestamp": 12005
+              },
+              {
+                "confidence": 0.8,
+                "details": {
+                  "back_posture": "straight",
+                  "head_position": "upright",
+                  "shoulder_alignment": "good"
+                },
+                "score": 7.703834865294851,
+                "timestamp": 13005
+              }
+            ],
+            "total_samples": 13
+          },
+          "feedback": "Good posture with minor adjustments needed",
+          "score": 7,
+          "suggestions": [
+            "Try to keep shoulders back and head upright"
+          ]
+        },
+        "transcript_analysis": {
+          "areas_for_improvement": [
+            "Add more examples",
+            "Show more enthusiasm"
+          ],
+          "communication": {
+            "feedback": "Clear communication",
+            "score": 7,
+            "suggestions": "Minimize filler words"
+          },
+          "completeness": {
+            "feedback": "Addresses the question",
+            "score": 6,
+            "suggestions": "Provide more comprehensive coverage"
+          },
+          "content_quality": {
+            "feedback": "Answer length: 1 words",
+            "score": 3,
+            "suggestions": "Provide more specific examples and details"
+          },
+          "engagement": {
+            "feedback": "Shows interest",
+            "score": 6,
+            "suggestions": "Express more enthusiasm and passion"
+          },
+          "overall_feedback": "Good response with 1 words. Consider adding more specific examples.",
+          "overall_score": 5,
+          "strengths": [
+            "Clear communication",
+            "Relevant content"
+          ]
+        },
+        "video_analysis": {
+          "duration": 15.658,
+          "feedback": "Speaking pace is a bit slow. Response is quite brief",
+          "score": 5,
+          "speaking_rate": 3.8319070123898324,
+          "suggestions": [
+            "Try to speak a bit faster to maintain engagement",
+            "Provide more detailed answers"
+          ],
+          "word_count": 1
+        }
+      },
+      "video_blob_size": 1342744
+    }
+  ],
+  "completed_at": "2025-09-04T06:58:03.390Z",
+  "total_questions": 5
+}
