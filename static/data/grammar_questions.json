@@ -1,0 +1,182 @@
+[
+  {
+    "id": 1,
+    "question": "Which sentence is grammatically correct?",
+    "options": [
+      "She don't like coffee.",
+      "She doesn't like coffee.",
+      "She doesn't likes coffee.",
+      "She don't likes coffee."
+    ],
+    "correct": 1,
+    "explanation": "With third person singular (she), we use 'doesn't' (does not), not 'don't' (do not)."
+  },
+  {
+    "id": 2,
+    "question": "Choose the correct form of the verb:",
+    "options": [
+      "I have went to the store.",
+      "I have go to the store.",
+      "I have gone to the store.",
+      "I have going to the store."
+    ],
+    "correct": 2,
+    "explanation": "The past participle of 'go' is 'gone', used with 'have' in present perfect tense."
+  },
+  {
+    "id": 3,
+    "question": "Which sentence uses the correct preposition?",
+    "options": [
+      "I'm good in mathematics.",
+      "I'm good at mathematics.",
+      "I'm good on mathematics.",
+      "I'm good with mathematics."
+    ],
+    "correct": 1,
+    "explanation": "We use 'good at' when talking about skills or abilities."
+  },
+  {
+    "id": 4,
+    "question": "Select the sentence with correct subject-verb agreement:",
+    "options": [
+      "The team are playing well.",
+      "The team is playing well.",
+      "The teams is playing well.",
+      "The team were playing well."
+    ],
+    "correct": 1,
+    "explanation": "In American English, collective nouns like 'team' are usually treated as singular."
+  },
+  {
+    "id": 5,
+    "question": "Which sentence correctly uses the comparative form?",
+    "options": [
+      "This book is more better than that one.",
+      "This book is better than that one.",
+      "This book is more good than that one.",
+      "This book is gooder than that one."
+    ],
+    "correct": 1,
+    "explanation": "'Better' is the comparative form of 'good'. Don't use 'more' with it."
+  },
+  {
+    "id": 6,
+    "question": "Choose the correct use of articles:",
+    "options": [
+      "I need a advice from you.",
+      "I need an advice from you.",
+      "I need some advice from you.",
+      "I need the advices from you."
+    ],
+    "correct": 2,
+    "explanation": "'Advice' is an uncountable noun, so we use 'some' or no article, not 'a/an'."
+  },
+  {
+    "id": 7,
+    "question": "Which sentence uses the correct pronoun?",
+    "options": [
+      "Between you and I, this is difficult.",
+      "Between you and me, this is difficult.",
+      "Between yourself and I, this is difficult.",
+      "Between you and myself, this is difficult."
+    ],
+    "correct": 1,
+    "explanation": "After prepositions like 'between', use object pronouns (me, him, her, us, them)."
+  },
+  {
+    "id": 8,
+    "question": "Select the sentence with correct punctuation:",
+    "options": [
+      "Its a beautiful day today.",
+      "It's a beautiful day today.",
+      "Its' a beautiful day today.",
+      "It's' a beautiful day today."
+    ],
+    "correct": 1,
+    "explanation": "'It's' is the contraction for 'it is'. 'Its' is possessive (without apostrophe)."
+  },
+  {
+    "id": 9,
+    "question": "Which sentence correctly uses the past perfect tense?",
+    "options": [
+      "I had already eat when she arrived.",
+      "I had already ate when she arrived.",
+      "I had already eaten when she arrived.",
+      "I have already eaten when she arrived."
+    ],
+    "correct": 2,
+    "explanation": "Past perfect uses 'had' + past participle. The past participle of 'eat' is 'eaten'."
+  },
+  {
+    "id": 10,
+    "question": "Choose the sentence with correct word order:",
+    "options": [
+      "Always I go to work by bus.",
+      "I go always to work by bus.",
+      "I always go to work by bus.",
+      "I go to work by bus always."
+    ],
+    "correct": 2,
+    "explanation": "Adverbs of frequency (always, usually, often) come before the main verb."
+  },
+  {
+    "id": 11,
+    "question": "Which sentence uses the correct conditional form?",
+    "options": [
+      "If I was rich, I would travel more.",
+      "If I were rich, I would travel more.",
+      "If I am rich, I would travel more.",
+      "If I will be rich, I would travel more."
+    ],
+    "correct": 1,
+    "explanation": "In hypothetical conditionals, use 'were' for all persons (subjunctive mood)."
+  },
+  {
+    "id": 12,
+    "question": "Select the sentence with correct parallel structure:",
+    "options": [
+      "She likes swimming, running, and to bike.",
+      "She likes swimming, running, and biking.",
+      "She likes to swim, running, and biking.",
+      "She likes swim, run, and bike."
+    ],
+    "correct": 1,
+    "explanation": "Parallel structure requires the same grammatical form: all gerunds (-ing forms)."
+  },
+  {
+    "id": 13,
+    "question": "Which sentence correctly uses 'who' vs 'whom'?",
+    "options": [
+      "Who did you give the book to?",
+      "Whom did you give the book to?",
+      "Who did you give the book?",
+      "Whom did you give the book?"
+    ],
+    "correct": 1,
+    "explanation": "'Whom' is the object form. 'To whom did you give the book?' or informally 'Who did you give the book to?'"
+  },
+  {
+    "id": 14,
+    "question": "Choose the sentence with correct use of 'fewer' vs 'less':",
+    "options": [
+      "There are less people here today.",
+      "There are fewer people here today.",
+      "There are less person here today.",
+      "There are fewer person here today."
+    ],
+    "correct": 1,
+    "explanation": "Use 'fewer' with countable nouns (people, books, cars). Use 'less' with uncountable nouns (water, money, time)."
+  },
+  {
+    "id": 15,
+    "question": "Which sentence has the correct modifier placement?",
+    "options": [
+      "Running quickly, the bus was missed by John.",
+      "Running quickly, John missed the bus.",
+      "The bus was missed by John running quickly.",
+      "John missed running quickly the bus."
+    ],
+    "correct": 1,
+    "explanation": "The modifier 'running quickly' should be next to what it modifies (John), not the bus."
+  }
+]

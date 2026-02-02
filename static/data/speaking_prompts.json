@@ -1,0 +1,107 @@
+[
+  {
+    "id": 1,
+    "category": "Personal Introduction",
+    "prompt": "Introduce yourself and describe your professional background. Include your current role, key skills, and career goals.",
+    "duration": 60,
+    "tips": ["Speak clearly and confidently", "Include specific examples", "Maintain good pace"]
+  },
+  {
+    "id": 2,
+    "category": "Problem Solving",
+    "prompt": "Describe a challenging problem you faced at work and how you solved it. Explain your thought process and the outcome.",
+    "duration": 90,
+    "tips": ["Use the STAR method", "Be specific about your actions", "Mention lessons learned"]
+  },
+  {
+    "id": 3,
+    "category": "Technology Discussion",
+    "prompt": "Explain a technology or programming concept you're passionate about to someone who isn't familiar with it.",
+    "duration": 75,
+    "tips": ["Use simple analogies", "Avoid technical jargon", "Be enthusiastic"]
+  },
+  {
+    "id": 4,
+    "category": "Leadership",
+    "prompt": "Tell me about a time when you had to lead a team or project. What challenges did you face and how did you overcome them?",
+    "duration": 90,
+    "tips": ["Focus on your leadership style", "Mention team dynamics", "Discuss results achieved"]
+  },
+  {
+    "id": 5,
+    "category": "Future Goals",
+    "prompt": "Where do you see yourself in 5 years? Describe your career aspirations and how you plan to achieve them.",
+    "duration": 60,
+    "tips": ["Be realistic but ambitious", "Connect to current role", "Show growth mindset"]
+  },
+  {
+    "id": 6,
+    "category": "Technical Explanation",
+    "prompt": "Explain how you would design a system to handle user authentication for a web application. Consider security and scalability.",
+    "duration": 120,
+    "tips": ["Think out loud", "Consider edge cases", "Mention best practices"]
+  },
+  {
+    "id": 7,
+    "category": "Conflict Resolution",
+    "prompt": "Describe a situation where you had a disagreement with a colleague or manager. How did you handle it?",
+    "duration": 75,
+    "tips": ["Stay professional", "Focus on resolution", "Show emotional intelligence"]
+  },
+  {
+    "id": 8,
+    "category": "Innovation",
+    "prompt": "Tell me about a time when you suggested an improvement or innovation at work. What was the impact?",
+    "duration": 90,
+    "tips": ["Explain your thinking process", "Mention implementation challenges", "Quantify results if possible"]
+  },
+  {
+    "id": 9,
+    "category": "Learning Experience",
+    "prompt": "Describe a skill or technology you recently learned. What motivated you to learn it and how did you approach the learning process?",
+    "duration": 75,
+    "tips": ["Show continuous learning", "Mention resources used", "Explain practical application"]
+  },
+  {
+    "id": 10,
+    "category": "Company Interest",
+    "prompt": "Why are you interested in working for our company? What do you know about our products, culture, and values?",
+    "duration": 90,
+    "tips": ["Research the company", "Be specific", "Connect your values to theirs"]
+  },
+  {
+    "id": 11,
+    "category": "Time Management",
+    "prompt": "How do you prioritize tasks when you have multiple urgent deadlines? Give an example from your experience.",
+    "duration": 75,
+    "tips": ["Mention prioritization frameworks", "Give concrete examples", "Discuss communication with stakeholders"]
+  },
+  {
+    "id": 12,
+    "category": "Failure and Learning",
+    "prompt": "Tell me about a project or task that didn't go as planned. What went wrong and what did you learn from it?",
+    "duration": 90,
+    "tips": ["Be honest about mistakes", "Focus on lessons learned", "Show growth and improvement"]
+  },
+  {
+    "id": 13,
+    "category": "Technical Challenge",
+    "prompt": "Describe the most technically challenging project you've worked on. What made it difficult and how did you approach it?",
+    "duration": 120,
+    "tips": ["Explain technical details clearly", "Discuss problem-solving approach", "Mention collaboration if relevant"]
+  },
+  {
+    "id": 14,
+    "category": "Communication",
+    "prompt": "Describe a time when you had to explain a complex technical concept to non-technical stakeholders. How did you ensure they understood?",
+    "duration": 75,
+    "tips": ["Use analogies and simple language", "Mention feedback mechanisms", "Show empathy for audience"]
+  },
+  {
+    "id": 15,
+    "category": "Adaptability",
+    "prompt": "Tell me about a time when you had to quickly adapt to a significant change at work. How did you handle it?",
+    "duration": 90,
+    "tips": ["Show flexibility", "Mention coping strategies", "Discuss positive outcomes"]
+  }
+]
