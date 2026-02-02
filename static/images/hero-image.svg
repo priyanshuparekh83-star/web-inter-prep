@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="600" height="400" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+    <!-- Background -->
+    <rect width="600" height="400" fill="#f8f9fa"/>
+    
+    <!-- Interview Scene -->
+    <g transform="translate(50, 50)">
+        <!-- Person -->
+        <circle cx="100" cy="100" r="40" fill="#0d6efd"/>
+        <path d="M 100 150 L 100 250" stroke="#0d6efd" stroke-width="8" fill="none"/>
+        <path d="M 100 250 L 60 300" stroke="#0d6efd" stroke-width="8" fill="none"/>
+        <path d="M 100 250 L 140 300" stroke="#0d6efd" stroke-width="8" fill="none"/>
+        
+        <!-- Speech Bubble -->
+        <path d="M 150 80 Q 200 80 200 130 L 200 170 Q 200 220 150 220 L 130 220 L 120 230 L 110 220 L 90 220 Q 40 220 40 170 L 40 130 Q 40 80 90 80 Z" 
+              fill="white" stroke="#0d6efd" stroke-width="2"/>
+        <text x="70" y="120" font-family="Arial" font-size="14" fill="#0d6efd">Hello!</text>
+        
+        <!-- Computer -->
+        <rect x="300" y="100" width="200" height="120" rx="10" fill="#e9ecef" stroke="#0d6efd" stroke-width="2"/>
+        <rect x="320" y="120" width="160" height="80" fill="white"/>
+        <text x="340" y="170" font-family="Arial" font-size="14" fill="#0d6efd">AI Interview</text>
+    </g>
+    
+    <!-- Decorative Elements -->
+    <circle cx="550" cy="50" r="20" fill="#0d6efd" opacity="0.2"/>
+    <circle cx="50" cy="350" r="15" fill="#0d6efd" opacity="0.2"/>
+    <circle cx="300" cy="350" r="25" fill="#0d6efd" opacity="0.2"/>
+</svg> 
